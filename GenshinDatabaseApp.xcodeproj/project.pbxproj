@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BA96E66281944CE004CB1CA /* GenshinDatabaseAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */; };
+		5BA96E68281944CE004CB1CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E67281944CE004CB1CA /* ContentView.swift */; };
+		5BA96E6A281944CF004CB1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA96E69281944CF004CB1CA /* Assets.xcassets */; };
+		5BA96E6D281944CF004CB1CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA96E6C281944CF004CB1CA /* Preview Assets.xcassets */; };
+		5BA96E77281944CF004CB1CA /* GenshinDatabaseAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E76281944CF004CB1CA /* GenshinDatabaseAppTests.swift */; };
+		5BA96E81281944CF004CB1CA /* GenshinDatabaseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E80281944CF004CB1CA /* GenshinDatabaseAppUITests.swift */; };
+		5BA96E83281944CF004CB1CA /* GenshinDatabaseAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E82281944CF004CB1CA /* GenshinDatabaseAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5BA96E73281944CF004CB1CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BA96E5A281944CE004CB1CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA96E61281944CE004CB1CA;
+			remoteInfo = GenshinDatabaseApp;
+		};
+		5BA96E7D281944CF004CB1CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BA96E5A281944CE004CB1CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA96E61281944CE004CB1CA;
+			remoteInfo = GenshinDatabaseApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5BA96E62281944CE004CB1CA /* GenshinDatabaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenshinDatabaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppApp.swift; sourceTree = "<group>"; };
+		5BA96E67281944CE004CB1CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5BA96E69281944CF004CB1CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BA96E6C281944CF004CB1CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5BA96E72281944CF004CB1CA /* GenshinDatabaseAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenshinDatabaseAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BA96E76281944CF004CB1CA /* GenshinDatabaseAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppTests.swift; sourceTree = "<group>"; };
+		5BA96E7C281944CF004CB1CA /* GenshinDatabaseAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenshinDatabaseAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BA96E80281944CF004CB1CA /* GenshinDatabaseAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppUITests.swift; sourceTree = "<group>"; };
+		5BA96E82281944CF004CB1CA /* GenshinDatabaseAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BA96E5F281944CE004CB1CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA96E6F281944CF004CB1CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA96E79281944CF004CB1CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5BA96E59281944CE004CB1CA = {
+			isa = PBXGroup;
+			children = (
+				5BA96E64281944CE004CB1CA /* GenshinDatabaseApp */,
+				5BA96E75281944CF004CB1CA /* GenshinDatabaseAppTests */,
+				5BA96E7F281944CF004CB1CA /* GenshinDatabaseAppUITests */,
+				5BA96E63281944CE004CB1CA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5BA96E63281944CE004CB1CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BA96E62281944CE004CB1CA /* GenshinDatabaseApp.app */,
+				5BA96E72281944CF004CB1CA /* GenshinDatabaseAppTests.xctest */,
+				5BA96E7C281944CF004CB1CA /* GenshinDatabaseAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BA96E64281944CE004CB1CA /* GenshinDatabaseApp */ = {
+			isa = PBXGroup;
+			children = (
+				5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */,
+				5BA96E67281944CE004CB1CA /* ContentView.swift */,
+				5BA96E69281944CF004CB1CA /* Assets.xcassets */,
+				5BA96E6B281944CF004CB1CA /* Preview Content */,
+			);
+			path = GenshinDatabaseApp;
+			sourceTree = "<group>";
+		};
+		5BA96E6B281944CF004CB1CA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5BA96E6C281944CF004CB1CA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5BA96E75281944CF004CB1CA /* GenshinDatabaseAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				5BA96E76281944CF004CB1CA /* GenshinDatabaseAppTests.swift */,
+			);
+			path = GenshinDatabaseAppTests;
+			sourceTree = "<group>";
+		};
+		5BA96E7F281944CF004CB1CA /* GenshinDatabaseAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5BA96E80281944CF004CB1CA /* GenshinDatabaseAppUITests.swift */,
+				5BA96E82281944CF004CB1CA /* GenshinDatabaseAppUITestsLaunchTests.swift */,
+			);
+			path = GenshinDatabaseAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5BA96E61281944CE004CB1CA /* GenshinDatabaseApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BA96E86281944CF004CB1CA /* Build configuration list for PBXNativeTarget "GenshinDatabaseApp" */;
+			buildPhases = (
+				5BA96E5E281944CE004CB1CA /* Sources */,
+				5BA96E5F281944CE004CB1CA /* Frameworks */,
+				5BA96E60281944CE004CB1CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GenshinDatabaseApp;
+			productName = GenshinDatabaseApp;
+			productReference = 5BA96E62281944CE004CB1CA /* GenshinDatabaseApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5BA96E71281944CF004CB1CA /* GenshinDatabaseAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BA96E89281944CF004CB1CA /* Build configuration list for PBXNativeTarget "GenshinDatabaseAppTests" */;
+			buildPhases = (
+				5BA96E6E281944CF004CB1CA /* Sources */,
+				5BA96E6F281944CF004CB1CA /* Frameworks */,
+				5BA96E70281944CF004CB1CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BA96E74281944CF004CB1CA /* PBXTargetDependency */,
+			);
+			name = GenshinDatabaseAppTests;
+			productName = GenshinDatabaseAppTests;
+			productReference = 5BA96E72281944CF004CB1CA /* GenshinDatabaseAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5BA96E7B281944CF004CB1CA /* GenshinDatabaseAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BA96E8C281944CF004CB1CA /* Build configuration list for PBXNativeTarget "GenshinDatabaseAppUITests" */;
+			buildPhases = (
+				5BA96E78281944CF004CB1CA /* Sources */,
+				5BA96E79281944CF004CB1CA /* Frameworks */,
+				5BA96E7A281944CF004CB1CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BA96E7E281944CF004CB1CA /* PBXTargetDependency */,
+			);
+			name = GenshinDatabaseAppUITests;
+			productName = GenshinDatabaseAppUITests;
+			productReference = 5BA96E7C281944CF004CB1CA /* GenshinDatabaseAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BA96E5A281944CE004CB1CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					5BA96E61281944CE004CB1CA = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					5BA96E71281944CF004CB1CA = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 5BA96E61281944CE004CB1CA;
+					};
+					5BA96E7B281944CF004CB1CA = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 5BA96E61281944CE004CB1CA;
+					};
+				};
+			};
+			buildConfigurationList = 5BA96E5D281944CE004CB1CA /* Build configuration list for PBXProject "GenshinDatabaseApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5BA96E59281944CE004CB1CA;
+			productRefGroup = 5BA96E63281944CE004CB1CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BA96E61281944CE004CB1CA /* GenshinDatabaseApp */,
+				5BA96E71281944CF004CB1CA /* GenshinDatabaseAppTests */,
+				5BA96E7B281944CF004CB1CA /* GenshinDatabaseAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BA96E60281944CE004CB1CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BA96E6D281944CF004CB1CA /* Preview Assets.xcassets in Resources */,
+				5BA96E6A281944CF004CB1CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA96E70281944CF004CB1CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA96E7A281944CF004CB1CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BA96E5E281944CE004CB1CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BA96E68281944CE004CB1CA /* ContentView.swift in Sources */,
+				5BA96E66281944CE004CB1CA /* GenshinDatabaseAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA96E6E281944CF004CB1CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BA96E77281944CF004CB1CA /* GenshinDatabaseAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA96E78281944CF004CB1CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BA96E83281944CF004CB1CA /* GenshinDatabaseAppUITestsLaunchTests.swift in Sources */,
+				5BA96E81281944CF004CB1CA /* GenshinDatabaseAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BA96E74281944CF004CB1CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BA96E61281944CE004CB1CA /* GenshinDatabaseApp */;
+			targetProxy = 5BA96E73281944CF004CB1CA /* PBXContainerItemProxy */;
+		};
+		5BA96E7E281944CF004CB1CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BA96E61281944CE004CB1CA /* GenshinDatabaseApp */;
+			targetProxy = 5BA96E7D281944CF004CB1CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5BA96E84281944CF004CB1CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5BA96E85281944CF004CB1CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5BA96E87281944CF004CB1CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GenshinDatabaseApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tinara-Nathania.GenshinDatabaseApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BA96E88281944CF004CB1CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GenshinDatabaseApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tinara-Nathania.GenshinDatabaseApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5BA96E8A281944CF004CB1CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tinara-Nathania.GenshinDatabaseAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenshinDatabaseApp.app/GenshinDatabaseApp";
+			};
+			name = Debug;
+		};
+		5BA96E8B281944CF004CB1CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tinara-Nathania.GenshinDatabaseAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenshinDatabaseApp.app/GenshinDatabaseApp";
+			};
+			name = Release;
+		};
+		5BA96E8D281944CF004CB1CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tinara-Nathania.GenshinDatabaseAppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GenshinDatabaseApp;
+			};
+			name = Debug;
+		};
+		5BA96E8E281944CF004CB1CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tinara-Nathania.GenshinDatabaseAppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GenshinDatabaseApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BA96E5D281944CE004CB1CA /* Build configuration list for PBXProject "GenshinDatabaseApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BA96E84281944CF004CB1CA /* Debug */,
+				5BA96E85281944CF004CB1CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BA96E86281944CF004CB1CA /* Build configuration list for PBXNativeTarget "GenshinDatabaseApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BA96E87281944CF004CB1CA /* Debug */,
+				5BA96E88281944CF004CB1CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BA96E89281944CF004CB1CA /* Build configuration list for PBXNativeTarget "GenshinDatabaseAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BA96E8A281944CF004CB1CA /* Debug */,
+				5BA96E8B281944CF004CB1CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BA96E8C281944CF004CB1CA /* Build configuration list for PBXNativeTarget "GenshinDatabaseAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BA96E8D281944CF004CB1CA /* Debug */,
+				5BA96E8E281944CF004CB1CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BA96E5A281944CE004CB1CA /* Project object */;
+}
