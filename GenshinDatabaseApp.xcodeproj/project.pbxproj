@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B41BC74281A697700410759 /* LevelUpCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BC73281A697700410759 /* LevelUpCalculator.swift */; };
+		5B41BC78281A793000410759 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BC77281A793000410759 /* CharacterList.swift */; };
+		5B41BC86281A8ABF00410759 /* georgiab.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC7B281A8ABF00410759 /* georgiab.ttf */; };
+		5B41BC87281A8ABF00410759 /* georgia bold italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC7C281A8ABF00410759 /* georgia bold italic.ttf */; };
+		5B41BC88281A8ABF00410759 /* Georgia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC7D281A8ABF00410759 /* Georgia.ttf */; };
+		5B41BC89281A8ABF00410759 /* georgia bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC7E281A8ABF00410759 /* georgia bold.ttf */; };
+		5B41BC8A281A8ABF00410759 /* georgiai.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC7F281A8ABF00410759 /* georgiai.ttf */; };
+		5B41BC8B281A8ABF00410759 /* georgiaz.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC80281A8ABF00410759 /* georgiaz.ttf */; };
+		5B41BC8C281A8ABF00410759 /* Georgia Bold Italic font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC81281A8ABF00410759 /* Georgia Bold Italic font.ttf */; };
+		5B41BC8D281A8ABF00410759 /* Georgia Regular font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC82281A8ABF00410759 /* Georgia Regular font.ttf */; };
+		5B41BC8E281A8ABF00410759 /* GEORGIA4.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC83281A8ABF00410759 /* GEORGIA4.TTF */; };
+		5B41BC8F281A8ABF00410759 /* seriffic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC84281A8ABF00410759 /* seriffic.ttf */; };
+		5B41BC90281A8ABF00410759 /* georgia italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC85281A8ABF00410759 /* georgia italic.ttf */; };
+		5B41BC92281B490B00410759 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BC91281B490B00410759 /* Tracker.swift */; };
+		5B41BC94281B492000410759 /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BC93281B492000410759 /* Bookmarks.swift */; };
+		5B41BC97281B4C8900410759 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC96281B4C8900410759 /* characters.json */; };
+		5B41BC98281B4C9500410759 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B41BC96281B4C8900410759 /* characters.json */; };
+		5B41BC9B281B4D5700410759 /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BC9A281B4D5700410759 /* CharactersCollectionViewCell.swift */; };
 		5BA96E66281944CE004CB1CA /* GenshinDatabaseAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */; };
 		5BA96E68281944CE004CB1CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E67281944CE004CB1CA /* ContentView.swift */; };
 		5BA96E6A281944CF004CB1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA96E69281944CF004CB1CA /* Assets.xcassets */; };
@@ -14,6 +32,8 @@
 		5BA96E77281944CF004CB1CA /* GenshinDatabaseAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E76281944CF004CB1CA /* GenshinDatabaseAppTests.swift */; };
 		5BA96E81281944CF004CB1CA /* GenshinDatabaseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E80281944CF004CB1CA /* GenshinDatabaseAppUITests.swift */; };
 		5BA96E83281944CF004CB1CA /* GenshinDatabaseAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E82281944CF004CB1CA /* GenshinDatabaseAppUITestsLaunchTests.swift */; };
+		5BA96FC028195BBA004CB1CA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96FBF28195BBA004CB1CA /* Character.swift */; };
+		5BA96FC228195C47004CB1CA /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96FC128195C47004CB1CA /* ModelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +54,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B41BC73281A697700410759 /* LevelUpCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpCalculator.swift; sourceTree = "<group>"; };
+		5B41BC77281A793000410759 /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
+		5B41BC7B281A8ABF00410759 /* georgiab.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = georgiab.ttf; path = ../../../../../../../../Downloads/georgia/georgiab.ttf; sourceTree = "<group>"; };
+		5B41BC7C281A8ABF00410759 /* georgia bold italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "georgia bold italic.ttf"; path = "../../../../../../../../Downloads/georgia/georgia bold italic.ttf"; sourceTree = "<group>"; };
+		5B41BC7D281A8ABF00410759 /* Georgia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Georgia.ttf; path = ../../../../../../../../Downloads/georgia/Georgia.ttf; sourceTree = "<group>"; };
+		5B41BC7E281A8ABF00410759 /* georgia bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "georgia bold.ttf"; path = "../../../../../../../../Downloads/georgia/georgia bold.ttf"; sourceTree = "<group>"; };
+		5B41BC7F281A8ABF00410759 /* georgiai.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = georgiai.ttf; path = ../../../../../../../../Downloads/georgia/georgiai.ttf; sourceTree = "<group>"; };
+		5B41BC80281A8ABF00410759 /* georgiaz.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = georgiaz.ttf; path = ../../../../../../../../Downloads/georgia/georgiaz.ttf; sourceTree = "<group>"; };
+		5B41BC81281A8ABF00410759 /* Georgia Bold Italic font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Georgia Bold Italic font.ttf"; path = "../../../../../../../../Downloads/georgia/Georgia Bold Italic font.ttf"; sourceTree = "<group>"; };
+		5B41BC82281A8ABF00410759 /* Georgia Regular font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Georgia Regular font.ttf"; path = "../../../../../../../../Downloads/georgia/Georgia Regular font.ttf"; sourceTree = "<group>"; };
+		5B41BC83281A8ABF00410759 /* GEORGIA4.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = GEORGIA4.TTF; path = ../../../../../../../../Downloads/georgia/GEORGIA4.TTF; sourceTree = "<group>"; };
+		5B41BC84281A8ABF00410759 /* seriffic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = seriffic.ttf; path = ../../../../../../../../Downloads/georgia/seriffic.ttf; sourceTree = "<group>"; };
+		5B41BC85281A8ABF00410759 /* georgia italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "georgia italic.ttf"; path = "../../../../../../../../Downloads/georgia/georgia italic.ttf"; sourceTree = "<group>"; };
+		5B41BC91281B490B00410759 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
+		5B41BC93281B492000410759 /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
+		5B41BC96281B4C8900410759 /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = characters.json; path = ../../../../../characters.json; sourceTree = "<group>"; };
+		5B41BC9A281B4D5700410759 /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
 		5BA96E62281944CE004CB1CA /* GenshinDatabaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenshinDatabaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppApp.swift; sourceTree = "<group>"; };
 		5BA96E67281944CE004CB1CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +81,8 @@
 		5BA96E7C281944CF004CB1CA /* GenshinDatabaseAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenshinDatabaseAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA96E80281944CF004CB1CA /* GenshinDatabaseAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppUITests.swift; sourceTree = "<group>"; };
 		5BA96E82281944CF004CB1CA /* GenshinDatabaseAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5BA96FBF28195BBA004CB1CA /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		5BA96FC128195C47004CB1CA /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +110,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B41BC72281A692B00410759 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				5BA96E67281944CE004CB1CA /* ContentView.swift */,
+				5B41BC73281A697700410759 /* LevelUpCalculator.swift */,
+				5B41BC77281A793000410759 /* CharacterList.swift */,
+				5B41BC91281B490B00410759 /* Tracker.swift */,
+				5B41BC93281B492000410759 /* Bookmarks.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		5B41BC79281A8A2700410759 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				5B41BC7A281A8A3200410759 /* fonts */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		5B41BC7A281A8A3200410759 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5B41BC81281A8ABF00410759 /* Georgia Bold Italic font.ttf */,
+				5B41BC7C281A8ABF00410759 /* georgia bold italic.ttf */,
+				5B41BC7E281A8ABF00410759 /* georgia bold.ttf */,
+				5B41BC85281A8ABF00410759 /* georgia italic.ttf */,
+				5B41BC82281A8ABF00410759 /* Georgia Regular font.ttf */,
+				5B41BC7D281A8ABF00410759 /* Georgia.ttf */,
+				5B41BC83281A8ABF00410759 /* GEORGIA4.TTF */,
+				5B41BC7B281A8ABF00410759 /* georgiab.ttf */,
+				5B41BC7F281A8ABF00410759 /* georgiai.ttf */,
+				5B41BC80281A8ABF00410759 /* georgiaz.ttf */,
+				5B41BC84281A8ABF00410759 /* seriffic.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		5B41BC99281B4D3B00410759 /* widgets */ = {
+			isa = PBXGroup;
+			children = (
+				5B41BC9A281B4D5700410759 /* CharactersCollectionViewCell.swift */,
+			);
+			path = widgets;
+			sourceTree = "<group>";
+		};
 		5BA96E59281944CE004CB1CA = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +179,12 @@
 		5BA96E64281944CE004CB1CA /* GenshinDatabaseApp */ = {
 			isa = PBXGroup;
 			children = (
+				5B41BC99281B4D3B00410759 /* widgets */,
+				5B41BC96281B4C8900410759 /* characters.json */,
+				5B41BC79281A8A2700410759 /* assets */,
+				5B41BC72281A692B00410759 /* views */,
+				5BA96FBE28195B5C004CB1CA /* model */,
 				5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */,
-				5BA96E67281944CE004CB1CA /* ContentView.swift */,
 				5BA96E69281944CF004CB1CA /* Assets.xcassets */,
 				5BA96E6B281944CF004CB1CA /* Preview Content */,
 			);
@@ -125,6 +214,15 @@
 				5BA96E82281944CF004CB1CA /* GenshinDatabaseAppUITestsLaunchTests.swift */,
 			);
 			path = GenshinDatabaseAppUITests;
+			sourceTree = "<group>";
+		};
+		5BA96FBE28195B5C004CB1CA /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5BA96FBF28195BBA004CB1CA /* Character.swift */,
+				5BA96FC128195C47004CB1CA /* ModelData.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +329,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B41BC90281A8ABF00410759 /* georgia italic.ttf in Resources */,
+				5B41BC97281B4C8900410759 /* characters.json in Resources */,
+				5B41BC8B281A8ABF00410759 /* georgiaz.ttf in Resources */,
+				5B41BC8E281A8ABF00410759 /* GEORGIA4.TTF in Resources */,
+				5B41BC8D281A8ABF00410759 /* Georgia Regular font.ttf in Resources */,
+				5B41BC87281A8ABF00410759 /* georgia bold italic.ttf in Resources */,
+				5B41BC86281A8ABF00410759 /* georgiab.ttf in Resources */,
+				5B41BC8C281A8ABF00410759 /* Georgia Bold Italic font.ttf in Resources */,
+				5B41BC8A281A8ABF00410759 /* georgiai.ttf in Resources */,
+				5B41BC8F281A8ABF00410759 /* seriffic.ttf in Resources */,
 				5BA96E6D281944CF004CB1CA /* Preview Assets.xcassets in Resources */,
+				5B41BC89281A8ABF00410759 /* georgia bold.ttf in Resources */,
 				5BA96E6A281944CF004CB1CA /* Assets.xcassets in Resources */,
+				5B41BC88281A8ABF00410759 /* Georgia.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B41BC98281B4C9500410759 /* characters.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +368,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B41BC74281A697700410759 /* LevelUpCalculator.swift in Sources */,
+				5BA96FC028195BBA004CB1CA /* Character.swift in Sources */,
+				5BA96FC228195C47004CB1CA /* ModelData.swift in Sources */,
+				5B41BC94281B492000410759 /* Bookmarks.swift in Sources */,
+				5B41BC78281A793000410759 /* CharacterList.swift in Sources */,
 				5BA96E68281944CE004CB1CA /* ContentView.swift in Sources */,
 				5BA96E66281944CE004CB1CA /* GenshinDatabaseAppApp.swift in Sources */,
+				5B41BC9B281B4D5700410759 /* CharactersCollectionViewCell.swift in Sources */,
+				5B41BC92281B490B00410759 /* Tracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
