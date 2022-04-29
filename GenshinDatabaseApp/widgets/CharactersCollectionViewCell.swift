@@ -32,16 +32,28 @@ struct CharactersCollectionViewCell: View {
     var body: some View {
     
         VStack {
-            Image("\(characters[index].profileImage)")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            ZStack{
+                if characters[index].rarity == "legendary" {
+                    Image("background_5star")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } else {
+                    Image("background_4star")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
+                Image("\(characters[index].profileImage)")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
 
+            }
+            
 
             HStack {
                 VStack(alignment: .leading) {
                     Text("\(characters[index].name)")
-                        .font(.system(size: 14))
-                        .foregroundColor(.secondary)
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
                     if characters[index].rarity == "legendary" {
                         HStack(spacing:1.0){
                             Image(systemName: "star.fill")
@@ -72,7 +84,9 @@ struct CharactersCollectionViewCell: View {
 
                 Spacer()
             }
-            .padding()
+            .padding(.bottom, 12)
+            .padding(.top, 2)
+            .padding(.horizontal)
             
         }
         .background(.white)
