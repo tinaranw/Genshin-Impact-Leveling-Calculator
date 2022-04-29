@@ -16,5 +16,23 @@ struct Character: Identifiable, Decodable {
     var rarity: String
     var vision: String
     var profileImage: String
+    var burst: Burst
+    var attack: Attack
+    var elementalSkill: ElementalSkill
    
+}
+
+struct Burst: Codable {
+    var name, description: String
+    var priority: Int
+}
+
+struct Attack: Codable {
+    var name, description: String
+    var priority: Int
+}
+
+struct ElementalSkill: Codable {
+    var name, description: String
+    var priority: Int
 }

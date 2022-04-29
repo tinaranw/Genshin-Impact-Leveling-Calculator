@@ -34,7 +34,7 @@ struct LevelUpCalculator: View {
     
     var body: some View {
         
-        NavigationView{
+        
             ScrollView(.vertical, showsIndicators: false, content: {
                 
                 VStack(spacing:15){
@@ -67,189 +67,191 @@ struct LevelUpCalculator: View {
                     .zIndex(1)
                     
                     //Profile Image
-                    VStack{
-                        HStack{
-                            Image("xiao")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 100, height: 100)
-                                .background(lightgray)
-                                .clipShape(Circle())
-                                .offset(y: offset < 0 ? getOffset() - 20 : -20)
-                                .scaleEffect(getScale())
-                            Spacer()
-                        }
-                        .padding(.top, -50)
-                        .padding(.bottom, -10)
-                        
-                        
-                        //Character Details and Form
-                        VStack(alignment: .leading, spacing: 10, content: {
-                            Group{
-                                Text("Character Name")
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                
-                                Text("Character Title")
-                                    .foregroundColor(.gray)
-                                
-                                Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
+                    Group{
+                        VStack{
+                            HStack{
+                                Image("xiao")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 100, height: 100)
+                                    .background(lightgray)
+                                    .clipShape(Circle())
+                                    .offset(y: offset < 0 ? getOffset() - 20 : -20)
+                                    .scaleEffect(getScale())
+                                Spacer()
+                            }
+                            .padding(.top, -50)
+                            .padding(.bottom, -10)
+                            
+                            
+                            //Character Details and Form
+                            VStack(alignment: .leading, spacing: 10, content: {
+                                Group{
+                                    Text("Character Name")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                    
+                                    Text("Character Title")
+                                        .foregroundColor(.gray)
+                                    
+                                    Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
+                                    
+                                    Spacer()
+                                        .frame(height: 20)
+                                }
+      
+                                Group{
+                                    Text("Character Level")
+                                    
+                                    HStack{
+                                        VStack{
+                                            Text("Current Level")
+                                                .foregroundColor(.gray)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            TextField("Set level", text: $currentlevel)
+                                                .keyboardType(.numberPad)
+                                            Rectangle()
+                                                .frame(height: 1.0, alignment: .bottom)
+                                                .foregroundColor(Color.gray)
+                                        }
+                                        VStack{
+                                            Text("Desired Level")
+                                                .foregroundColor(.gray)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            TextField("Set level", text: $desiredlevel)
+                                                .keyboardType(.numberPad)
+                                            Rectangle()
+                                                .frame(height: 1.0, alignment: .bottom)
+                                                .foregroundColor(Color.gray)
+                                            
+                                        }
+                                    }
+                                }
                                 
                                 Spacer()
-                                    .frame(height: 20)
-                            }
-  
-                            Group{
-                                Text("Character Level")
+                                    .frame(height: 10)
                                 
-                                HStack{
-                                    VStack{
-                                        Text("Current Level")
-                                            .foregroundColor(.gray)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        TextField("Set level", text: $currentlevel)
-                                            .keyboardType(.numberPad)
-                                        Rectangle()
-                                            .frame(height: 1.0, alignment: .bottom)
-                                            .foregroundColor(Color.gray)
-                                    }
-                                    VStack{
-                                        Text("Desired Level")
-                                            .foregroundColor(.gray)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        TextField("Set level", text: $desiredlevel)
-                                            .keyboardType(.numberPad)
-                                        Rectangle()
-                                            .frame(height: 1.0, alignment: .bottom)
-                                            .foregroundColor(Color.gray)
-                                        
+                                Group{
+                                    Text("Talent Level")
+                                    Text("If it has a different color, subtract it by 3")
+                                        .foregroundColor(.green)
+                                }
+                                
+                                Group{
+                                    cardTalentDetail
+                                    
+                                    HStack{
+                                        VStack{
+                                            Text("Current Level")
+                                                .foregroundColor(.gray)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            TextField("Set level", text: $currentnatalentlevel)
+                                                .keyboardType(.numberPad)
+                                            Rectangle()
+                                                .frame(height: 1.0, alignment: .bottom)
+                                                .foregroundColor(Color.gray)
+                                        }
+                                        VStack{
+                                            Text("Desired Level")
+                                                .foregroundColor(.gray)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            TextField("Set level", text: $desirednatalentlevel)
+                                                .keyboardType(.numberPad)
+                                            Rectangle()
+                                                .frame(height: 1.0, alignment: .bottom)
+                                                .foregroundColor(Color.gray)
+                                            
+                                        }
                                     }
                                 }
-                            }
-                            
-                            Spacer()
-                                .frame(height: 10)
-                            
-                            Group{
-                                Text("Talent Level")
-                                Text("If it has a different color, subtract it by 3")
-                                    .foregroundColor(.green)
-                            }
-                            
-                            Group{
-                                cardTalentDetail
                                 
-                                HStack{
-                                    VStack{
-                                        Text("Current Level")
-                                            .foregroundColor(.gray)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        TextField("Set level", text: $currentnatalentlevel)
-                                            .keyboardType(.numberPad)
-                                        Rectangle()
-                                            .frame(height: 1.0, alignment: .bottom)
-                                            .foregroundColor(Color.gray)
-                                    }
-                                    VStack{
-                                        Text("Desired Level")
-                                            .foregroundColor(.gray)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        TextField("Set level", text: $desirednatalentlevel)
-                                            .keyboardType(.numberPad)
-                                        Rectangle()
-                                            .frame(height: 1.0, alignment: .bottom)
-                                            .foregroundColor(Color.gray)
-                                        
+                                Spacer()
+                                    .frame(height: 10)
+                                
+                                Group{
+                                    cardTalentDetail
+                                    
+                                    HStack{
+                                        VStack{
+                                            Text("Current Level")
+                                                .foregroundColor(.gray)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            TextField("Set level", text: $currentestalentlevel)
+                                                .keyboardType(.numberPad)
+                                            Rectangle()
+                                                .frame(height: 1.0, alignment: .bottom)
+                                                .foregroundColor(Color.gray)
+                                        }
+                                        VStack{
+                                            Text("Desired Level")
+                                                .foregroundColor(.gray)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            TextField("Set level", text: $desiredestalentlevel)
+                                                .keyboardType(.numberPad)
+                                            Rectangle()
+                                                .frame(height: 1.0, alignment: .bottom)
+                                                .foregroundColor(Color.gray)
+                                            
+                                        }
                                     }
                                 }
-                            }
-                            
-                            Spacer()
-                                .frame(height: 10)
-                            
-                            Group{
-                                cardTalentDetail
                                 
-                                HStack{
-                                    VStack{
-                                        Text("Current Level")
-                                            .foregroundColor(.gray)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        TextField("Set level", text: $currentestalentlevel)
-                                            .keyboardType(.numberPad)
-                                        Rectangle()
-                                            .frame(height: 1.0, alignment: .bottom)
-                                            .foregroundColor(Color.gray)
-                                    }
-                                    VStack{
-                                        Text("Desired Level")
-                                            .foregroundColor(.gray)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        TextField("Set level", text: $desiredestalentlevel)
-                                            .keyboardType(.numberPad)
-                                        Rectangle()
-                                            .frame(height: 1.0, alignment: .bottom)
-                                            .foregroundColor(Color.gray)
-                                        
+                                Spacer()
+                                    .frame(height: 10)
+                                
+                                Group{
+                                    cardTalentDetail
+                                    
+                                    HStack{
+                                        VStack{
+                                            Text("Current Level")
+                                                .foregroundColor(.gray)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            TextField("Set level", text: $currentbursttalentlevel)
+                                                .keyboardType(.numberPad)
+                                            Rectangle()
+                                                .frame(height: 1.0, alignment: .bottom)
+                                                .foregroundColor(Color.gray)
+                                        }
+                                        VStack{
+                                            Text("Desired Level")
+                                                .foregroundColor(.gray)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            TextField("Set level", text: $desiredbursttalentlevel)
+                                                .keyboardType(.numberPad)
+                                            Rectangle()
+                                                .frame(height: 1.0, alignment: .bottom)
+                                                .foregroundColor(Color.gray)
+                                            
+                                        }
                                     }
                                 }
-                            }
-                            
-                            Spacer()
-                                .frame(height: 10)
-                            
-                            Group{
-                                cardTalentDetail
                                 
-                                HStack{
-                                    VStack{
-                                        Text("Current Level")
-                                            .foregroundColor(.gray)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        TextField("Set level", text: $currentbursttalentlevel)
-                                            .keyboardType(.numberPad)
-                                        Rectangle()
-                                            .frame(height: 1.0, alignment: .bottom)
-                                            .foregroundColor(Color.gray)
-                                    }
-                                    VStack{
-                                        Text("Desired Level")
-                                            .foregroundColor(.gray)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        TextField("Set level", text: $desiredbursttalentlevel)
-                                            .keyboardType(.numberPad)
-                                        Rectangle()
-                                            .frame(height: 1.0, alignment: .bottom)
-                                            .foregroundColor(Color.gray)
-                                        
-                                    }
-                                }
-                            }
+                                Spacer()
+                                    .frame(height: 30)
+                                
+                                
+                                
+                                
+                            })
                             
-                            Spacer()
-                                .frame(height: 30)
+                            //
                             
                             
                             
-                            
-                        })
-                        
-                        //
-                        
-                        
-                        
+                        }
+                        .padding(20)
+                        //Moving the view back..
+                        .zIndex(-offset > 80 ? 0 : 1)
                     }
-                    .padding(20)
-                    //Moving the view back..
-                    .zIndex(-offset > 80 ? 0 : 1)
                     
                 }
                 
             })
                 .ignoresSafeArea(.all, edges: .top)
             
-        }
-        .navigationTitle("Calculate Resources")
+        
+     
     }
     
     //Profile Shrinking Effect

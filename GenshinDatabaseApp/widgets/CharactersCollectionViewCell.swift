@@ -112,7 +112,7 @@ struct CharactersCollectionViewCell: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: darkgray, radius: 3, x: 0, y: 1)
         .onTapGesture {
-            print("\(characters[index].name)")
+            print("\(characters[index].burst.priority)")
         }
         
     }
