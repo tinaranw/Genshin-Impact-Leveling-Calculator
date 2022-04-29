@@ -23,7 +23,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Calculator", systemImage: "number")
                 }
-            Bookmarks()
+            LevelUpCalculator()
                 .tabItem {
                     Label("Bookmarks", systemImage: "bookmark.fill")
                 }

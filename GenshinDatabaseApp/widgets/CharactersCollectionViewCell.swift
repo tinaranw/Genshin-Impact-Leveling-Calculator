@@ -14,7 +14,7 @@ struct CharactersCollectionViewCell: View {
     static let row = characters.count/3
     
     //Width
-    let width = (UIScreen.main.bounds.width/3 - 20)
+    let width = (UIScreen.main.bounds.width/3 - 80)
     
     //Color
     let darkgray = Color(0xb1b1b1)
@@ -52,30 +52,49 @@ struct CharactersCollectionViewCell: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("\(characters[index].name)")
-                        .font(.system(size: 16))
+                        .font(.system(size: 14))
                         .foregroundColor(.black)
+                        .lineLimit(1)
                     if characters[index].rarity == "legendary" {
                         HStack(spacing:1.0){
                             Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(gold)
                             Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(gold)
                             Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(gold)
                             Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(gold)
                             Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(gold)
                         }
                     } else {
                         HStack(spacing:1.0){
                             Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(purple)
                             Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(purple)
                             Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(purple)
                             Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(purple)
                         }
                     }
@@ -90,7 +109,7 @@ struct CharactersCollectionViewCell: View {
             
         }
         .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: darkgray, radius: 3, x: 0, y: 1)
         .onTapGesture {
             print("\(characters[index].name)")

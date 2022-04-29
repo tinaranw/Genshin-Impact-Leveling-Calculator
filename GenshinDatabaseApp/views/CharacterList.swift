@@ -23,14 +23,15 @@ struct CharacterList: View {
                     }
                 }
             }
+            .padding(20)
             
-            .navigationTitle("Character")
+            .navigationTitle("Characters")
         }
     }
 }
 
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CharacterList()
     }
 }
