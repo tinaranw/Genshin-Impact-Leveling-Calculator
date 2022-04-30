@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct CharacterList: View {
+    
     var body: some View {
         NavigationView{
             

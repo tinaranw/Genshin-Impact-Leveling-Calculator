@@ -31,6 +31,8 @@ struct LevelUpCalculator: View {
     //Color
     let lightgray = Color(0xeeeeee)
     let darkgray = Color(0xb1b1b1)
+    let gold = Color(0xFFBA4B)
+    let purple = Color(0x9A6CDB)
     
     var body: some View {
         
@@ -69,19 +71,32 @@ struct LevelUpCalculator: View {
                     //Profile Image
                     Group{
                         VStack{
-                            HStack{
-                                Image("xiao")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 100, height: 100)
-                                    .background(lightgray)
-                                    .clipShape(Circle())
-                                    .offset(y: offset < 0 ? getOffset() - 20 : -20)
-                                    .scaleEffect(getScale())
-                                Spacer()
+                            ZStack{
+                                HStack{
+                                    Image("background_5star")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 100, height: 100)
+                                        .clipShape(Circle())
+                                        .offset(y: offset < 0 ? getOffset() - 20 : -20)
+                                        .scaleEffect(getScale())
+                                    Spacer()
+                                }
+                                .padding(.top, -50)
+                                .padding(.bottom, -10)
+                                HStack{
+                                    Image("xiao")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 100, height: 100)
+                                        .clipShape(Circle())
+                                        .offset(y: offset < 0 ? getOffset() - 20 : -20)
+                                        .scaleEffect(getScale())
+                                    Spacer()
+                                }
+                                .padding(.top, -50)
+                                .padding(.bottom, -10)
                             }
-                            .padding(.top, -50)
-                            .padding(.bottom, -10)
                             
                             
                             //Character Details and Form
@@ -91,8 +106,28 @@ struct LevelUpCalculator: View {
                                         .font(.title)
                                         .fontWeight(.bold)
                                     
-                                    Text("Character Title")
-                                        .foregroundColor(.gray)
+                                    HStack(spacing:1.0){
+                                        Image(systemName: "star.fill")
+                                            .resizable()
+                                            .frame(width: 12.0, height: 12.0)
+                                            .foregroundColor(gold)
+                                        Image(systemName: "star.fill")
+                                            .resizable()
+                                            .frame(width: 12.0, height: 12.0)
+                                            .foregroundColor(gold)
+                                        Image(systemName: "star.fill")
+                                            .resizable()
+                                            .frame(width: 12.0, height: 12.0)
+                                            .foregroundColor(gold)
+                                        Image(systemName: "star.fill")
+                                            .resizable()
+                                            .frame(width: 12.0, height: 12.0)
+                                            .foregroundColor(gold)
+                                        Image(systemName: "star.fill")
+                                            .resizable()
+                                            .frame(width: 12.0, height: 12.0)
+                                            .foregroundColor(gold)
+                                    }
                                     
                                     Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
                                     

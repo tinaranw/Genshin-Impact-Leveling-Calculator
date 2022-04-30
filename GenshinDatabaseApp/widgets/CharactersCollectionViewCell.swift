@@ -23,7 +23,7 @@ struct CharactersCollectionViewCell: View {
     let purple = Color(0x9A6CDB)
     
     //Index
-    var index = 0
+    public var index = 0
     init(row: Int, column: Int){
         index = row + column + (row*2)
         
@@ -112,7 +112,7 @@ struct CharactersCollectionViewCell: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: darkgray, radius: 3, x: 0, y: 1)
         .onTapGesture {
-            print("\(characters[index].burst.priority)")
+            print("\(characters[index].name)")
         }
         
     }
