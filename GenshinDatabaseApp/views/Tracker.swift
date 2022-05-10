@@ -14,39 +14,39 @@ struct Tracker: View {
     var body: some View {
         ScrollView{
             VStack(alignment: .leading){
-                HStack{
-                    VStack(alignment: .leading){
-                        Text("Welcome Back,")
-                            .foregroundColor(.secondary)
-                            .font(.subheadline)
-                        Text("Traveler")
-                            .font(.largeTitle)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    ZStack{
-                        HStack{
-                            Image("brownsquare")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 80, height: 80)
-                                .clipShape(Circle())
-                           
-                        }
-                        .padding(.top, -10)
-                        HStack{
-                            Image("xiao")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 80, height: 80)
-                                .clipShape(Circle())
-                           
-                        }
-                        .padding(.top, -10)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    
-                }
-                .padding(.horizontal)
+//                HStack{
+//                    VStack(alignment: .leading){
+//                        Text("Welcome Back,")
+//                            .foregroundColor(.secondary)
+//                            .font(.subheadline)
+//                        Text("Traveler")
+//                            .font(.largeTitle)
+//                    }
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//                    ZStack{
+//                        HStack{
+//                            Image("brownsquare")
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fill)
+//                                .frame(width: 80, height: 80)
+//                                .clipShape(Circle())
+//
+//                        }
+//                        .padding(.top, -10)
+//                        HStack{
+//                            Image("xiao")
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fill)
+//                                .frame(width: 80, height: 80)
+//                                .clipShape(Circle())
+//
+//                        }
+//                        .padding(.top, -10)
+//                    }
+//                    .frame(maxWidth: .infinity, alignment: .trailing)
+//
+//                }
+//                .padding(.horizontal)
                 
                 HStack{
                     HStack{

@@ -77,6 +77,7 @@
 		5B41BCA0281C345700410759 /* glovar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = glovar.swift; sourceTree = "<group>"; };
 		5B41BCA2281D30F000410759 /* ResinCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResinCalculator.swift; sourceTree = "<group>"; };
 		5B9E64B4282A4971003370E0 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		5B9E64B6282A9645003370E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5BA96E62281944CE004CB1CA /* GenshinDatabaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenshinDatabaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppApp.swift; sourceTree = "<group>"; };
 		5BA96E67281944CE004CB1CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 		5BA96E64281944CE004CB1CA /* GenshinDatabaseApp */ = {
 			isa = PBXGroup;
 			children = (
+				5B9E64B6282A9645003370E0 /* Info.plist */,
 				5B41BC99281B4D3B00410759 /* widgets */,
 				5B41BC96281B4C8900410759 /* characters.json */,
 				5B41BC79281A8A2700410759 /* assets */,
@@ -551,6 +553,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"GenshinDatabaseApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GenshinDatabaseApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -579,6 +582,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"GenshinDatabaseApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GenshinDatabaseApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

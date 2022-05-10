@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CharacterList: View {
     @ObservedObject var chosenCharacter:Character
-    
+    let backgroundColor = Color(0xFBFBFB)
     
     var body: some View {
         
@@ -28,6 +28,7 @@ struct CharacterList: View {
             }
         }
         .padding(20)
+        .background(backgroundColor)
         
         //            .navigationTitle("Characters")
         

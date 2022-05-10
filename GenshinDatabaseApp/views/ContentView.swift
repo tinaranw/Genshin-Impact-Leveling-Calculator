@@ -8,16 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     //Color Palette
     let lightgray = Color(0xeeeeee)
+    let accentBlue = Color(0xB7CADB)
+    let backgroundCream = Color(0xFDF6EC)
+    let primaryCream = Color(0xDAB88B)
+    let darkCream = Color(0x8E785B)
     
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(lightgray)
+        UITabBar.appearance().barTintColor = UIColor(lightgray)
+        UITabBar.appearance().tintColor = UIColor(accentBlue)
+        UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 28)!]
+    
+    }
     var body: some View {
+    
+        
         TabView {
             NavigationView{
                 Tracker()
-                    .navigationTitle("Tracker")
-                    .navigationBarHidden(true)
+                    .navigationBarTitle(Text("Tracker").font(.subheadline), displayMode: .large)
+//                    .navigationBarHidden(true)
                 
                 
             }
@@ -43,9 +56,9 @@ struct ContentView: View {
                 Label("Bookmarks", systemImage: "bookmark.fill")
             }
             
-            
-            
         }
+        .accentColor(darkCream)
+        
     }
 }
 

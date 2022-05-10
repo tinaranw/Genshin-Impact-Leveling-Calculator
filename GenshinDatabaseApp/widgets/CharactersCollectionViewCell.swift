@@ -52,7 +52,7 @@ struct CharactersCollectionViewCell: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("\(characters[index].name)")
-                        .font(.system(size: 14))
+                        .font(.custom("Georgia", size: 15, relativeTo: .headline))
                         .foregroundColor(.black)
                         .lineLimit(1)
                     if characters[index].rarity == "legendary" {
