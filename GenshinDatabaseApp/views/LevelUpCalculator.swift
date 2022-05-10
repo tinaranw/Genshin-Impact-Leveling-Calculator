@@ -9,24 +9,32 @@ import Foundation
 import SwiftUI
 
 struct LevelUpCalculator: View {
-    @State var offset: CGFloat = 0
+    
+    let character:Character
     
     //Data
+    //Character Info
+   
     //Character Level
-    @State private var currentlevel:String = "0"
-    @State private var desiredlevel:String = "0"
+    @State private var currentlevel = 0
+    @State private var desiredlevel = 0
     
     //Normal Attack Talent Level
-    @State private var currentnatalentlevel:String = "0"
-    @State private var desirednatalentlevel:String = "0"
+    @State private var currentnatalentlevel = 0
+    @State private var desirednatalentlevel = 0
     
     //Elemental Skill Talent Level
-    @State private var currentestalentlevel:String = "0"
-    @State private var desiredestalentlevel:String = "0"
+    @State private var currentestalentlevel = 0
+    @State private var desiredestalentlevel = 0
     
     //Burst Talent Level
-    @State private var currentbursttalentlevel:String = "0"
-    @State private var desiredbursttalentlevel:String = "0"
+    @State private var currentbursttalentlevel = 0
+    @State private var desiredbursttalentlevel = 0
+    
+    
+    //View
+    @State var offset: CGFloat = 0
+    
     
     //Color
     let lightgray = Color(0xeeeeee)
@@ -36,7 +44,7 @@ struct LevelUpCalculator: View {
     
     var body: some View {
         
-        
+      
             ScrollView(.vertical, showsIndicators: false, content: {
                 
                 VStack(spacing:15){
@@ -54,11 +62,19 @@ struct LevelUpCalculator: View {
                         
                         return AnyView(
                             ZStack{
-                                Image("dummy_namecard")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: getRect().width, height: minY > 0 ? 180 + minY : nil, alignment: .center)
-                                    .cornerRadius(0)
+                                if(character.rarity == "legendary") {
+                                    Image("brown")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: getRect().width, height: minY > 0 ? 180 + minY : nil, alignment: .center)
+                                        .cornerRadius(0)
+                                } else {
+                                    Image("blue")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: getRect().width, height: minY > 0 ? 180 + minY : nil, alignment: .center)
+                                        .cornerRadius(0)
+                                }
                             }
                             //Stretchy Header..
                                 .frame(height: minY > 0 ? 180 + minY : nil)
@@ -73,19 +89,30 @@ struct LevelUpCalculator: View {
                         VStack{
                             ZStack{
                                 HStack{
-                                    Image("background_5star")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 100, height: 100)
-                                        .clipShape(Circle())
-                                        .offset(y: offset < 0 ? getOffset() - 20 : -20)
-                                        .scaleEffect(getScale())
-                                    Spacer()
+                                    if(character.rarity == "legendary") {
+                                        Image("background_5star")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 100, height: 100)
+                                            .clipShape(Circle())
+                                            .offset(y: offset < 0 ? getOffset() - 20 : -20)
+                                            .scaleEffect(getScale())
+                                        Spacer()
+                                    } else {
+                                        Image("background_4star")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 100, height: 100)
+                                            .clipShape(Circle())
+                                            .offset(y: offset < 0 ? getOffset() - 20 : -20)
+                                            .scaleEffect(getScale())
+                                        Spacer()
+                                    }
                                 }
                                 .padding(.top, -50)
                                 .padding(.bottom, -10)
                                 HStack{
-                                    Image("xiao")
+                                    Image(character.profileImage)
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
                                         .frame(width: 100, height: 100)
@@ -102,7 +129,7 @@ struct LevelUpCalculator: View {
                             //Character Details and Form
                             VStack(alignment: .leading, spacing: 10, content: {
                                 Group{
-                                    Text("Character Name")
+                                    Text(character.name)
                                         .font(.title)
                                         .fontWeight(.bold)
                                     
@@ -129,36 +156,97 @@ struct LevelUpCalculator: View {
                                             .foregroundColor(gold)
                                     }
                                     
-                                    Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
+                                    Text(character.description)
                                     
                                     Spacer()
                                         .frame(height: 20)
                                 }
-      
+                                
                                 Group{
                                     Text("Character Level")
                                     
                                     HStack{
+                                        //                                        VStack{
+                                        //                                            Text("Current Level")
+                                        //                                                .foregroundColor(.gray)
+                                        //                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                        //                                            TextField("Set level", value: $currentlevel, format:.number)
+                                        //                                                .keyboardType(.numberPad)
+                                        //                                            Rectangle()
+                                        //                                                .frame(height: 1.0, alignment: .bottom)
+                                        //                                                .foregroundColor(Color.gray)
+                                        //                                        }
+                                        //                                        VStack{
+                                        //                                            Text("Desired Level")
+                                        //                                                .foregroundColor(.gray)
+                                        //                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                        //                                            TextField("Set level", value: $desiredlevel, format: .number)
+                                        //                                                .keyboardType(.numberPad)
+                                        //                                            Rectangle()
+                                        //                                                .frame(height: 1.0, alignment: .bottom)
+                                        //                                                .foregroundColor(Color.gray)
+                                        //
+                                        //                                        }
+                                        
                                         VStack{
                                             Text("Current Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", text: $currentlevel)
-                                                .keyboardType(.numberPad)
-                                            Rectangle()
-                                                .frame(height: 1.0, alignment: .bottom)
-                                                .foregroundColor(Color.gray)
+                                            Menu{
+                                                Button(action: {}, label: {
+                                                    Text("20")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("40")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("50")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("60")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("70")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("80")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("90")
+                                                })
+                                            } label : {
+                                            title: do {Text("Select Level")}
+                                            }
                                         }
                                         VStack{
                                             Text("Desired Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", text: $desiredlevel)
-                                                .keyboardType(.numberPad)
-                                            Rectangle()
-                                                .frame(height: 1.0, alignment: .bottom)
-                                                .foregroundColor(Color.gray)
-                                            
+                                            Menu{
+                                                Button(action: {}, label: {
+                                                    Text("20")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("40")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("50")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("60")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("70")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("80")
+                                                })
+                                                Button(action: {}, label: {
+                                                    Text("90")
+                                                })
+                                            } label : {
+                                            title: do {Text("Select Level")}
+                                            }
                                         }
                                     }
                                 }
@@ -180,7 +268,7 @@ struct LevelUpCalculator: View {
                                             Text("Current Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", text: $currentnatalentlevel)
+                                            TextField("Set level", value: $currentnatalentlevel, format: .number)
                                                 .keyboardType(.numberPad)
                                             Rectangle()
                                                 .frame(height: 1.0, alignment: .bottom)
@@ -190,7 +278,7 @@ struct LevelUpCalculator: View {
                                             Text("Desired Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", text: $desirednatalentlevel)
+                                            TextField("Set level", value: $desirednatalentlevel, format: .number)
                                                 .keyboardType(.numberPad)
                                             Rectangle()
                                                 .frame(height: 1.0, alignment: .bottom)
@@ -211,7 +299,7 @@ struct LevelUpCalculator: View {
                                             Text("Current Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", text: $currentestalentlevel)
+                                            TextField("Set value", value: $currentestalentlevel,format: .number)
                                                 .keyboardType(.numberPad)
                                             Rectangle()
                                                 .frame(height: 1.0, alignment: .bottom)
@@ -221,7 +309,7 @@ struct LevelUpCalculator: View {
                                             Text("Desired Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", text: $desiredestalentlevel)
+                                            TextField("Set value", value: $desiredestalentlevel, format: .number)
                                                 .keyboardType(.numberPad)
                                             Rectangle()
                                                 .frame(height: 1.0, alignment: .bottom)
@@ -242,7 +330,7 @@ struct LevelUpCalculator: View {
                                             Text("Current Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", text: $currentbursttalentlevel)
+                                            TextField("Set level", value: $currentbursttalentlevel, format: .number)
                                                 .keyboardType(.numberPad)
                                             Rectangle()
                                                 .frame(height: 1.0, alignment: .bottom)
@@ -252,7 +340,7 @@ struct LevelUpCalculator: View {
                                             Text("Desired Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", text: $desiredbursttalentlevel)
+                                            TextField("Set level", value: $desiredbursttalentlevel, format: .number)
                                                 .keyboardType(.numberPad)
                                             Rectangle()
                                                 .frame(height: 1.0, alignment: .bottom)
@@ -262,10 +350,14 @@ struct LevelUpCalculator: View {
                                     }
                                 }
                                 
-                                Spacer()
-                                    .frame(height: 30)
-                                
-                                
+                                Group{
+                                    Spacer()
+                                        .frame(height: 30)
+                                    Button("Calculate", action: calculateResources).frame(minWidth: 100, maxWidth: .infinity, minHeight: 44)
+                                        .background(lightgray)
+                                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                                    
+                                }
                                 
                                 
                             })
@@ -285,22 +377,10 @@ struct LevelUpCalculator: View {
             })
                 .ignoresSafeArea(.all, edges: .top)
             
+
         
-     
     }
-    
-    //Profile Shrinking Effect
-    func getOffset()->CGFloat{
-        let progress = (-offset / 80) * 20
-        return progress <= 20 ? progress : 20
-    }
-    
-    func getScale()->CGFloat{
-        let progress = -offset/80
-        let scale = 1.8 - (progress < 1.0 ? progress : 1)
-        return scale < 1 ? scale : 1
-    }
-    
+    //VIEWS
     //Talent Cards
     var cardTalentDetail:some View{
         HStack{
@@ -330,11 +410,40 @@ struct LevelUpCalculator: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: darkgray, radius: 3, x: 0, y: 1)
     }
+    
+    
+    //FUNCTIONS
+    //Profile Shrinking Effect
+    func getOffset()->CGFloat{
+        let progress = (-offset / 80) * 20
+        return progress <= 20 ? progress : 20
+    }
+    
+    func getScale()->CGFloat{
+        let progress = -offset/80
+        let scale = 1.8 - (progress < 1.0 ? progress : 1)
+        return scale < 1 ? scale : 1
+    }
+    
+    func calculateCharLevel(){
+        
+    }
+    
+    func calculateTalentLevel(){
+        
+    }
+    
+    func calculateResources(){
+        print(currentlevel)
+        print(desiredlevel)
+    }
+    
+    
 }
 
 struct LevelUpCalculator_Previews: PreviewProvider {
     static var previews: some View {
-        LevelUpCalculator()
+        LevelUpCalculator(character: characters[0])
     }
 }
 

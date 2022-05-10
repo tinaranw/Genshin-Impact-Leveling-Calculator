@@ -27,6 +27,7 @@
 		5B41BC9B281B4D5700410759 /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BC9A281B4D5700410759 /* CharactersCollectionViewCell.swift */; };
 		5B41BCA1281C345700410759 /* glovar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BCA0281C345700410759 /* glovar.swift */; };
 		5B41BCA3281D30F000410759 /* ResinCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BCA2281D30F000410759 /* ResinCalculator.swift */; };
+		5B9E64B5282A4971003370E0 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64B4282A4971003370E0 /* ResultView.swift */; };
 		5BA96E66281944CE004CB1CA /* GenshinDatabaseAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */; };
 		5BA96E68281944CE004CB1CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E67281944CE004CB1CA /* ContentView.swift */; };
 		5BA96E6A281944CF004CB1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA96E69281944CF004CB1CA /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		5B41BC9A281B4D5700410759 /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B41BCA0281C345700410759 /* glovar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = glovar.swift; sourceTree = "<group>"; };
 		5B41BCA2281D30F000410759 /* ResinCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResinCalculator.swift; sourceTree = "<group>"; };
+		5B9E64B4282A4971003370E0 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		5BA96E62281944CE004CB1CA /* GenshinDatabaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenshinDatabaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppApp.swift; sourceTree = "<group>"; };
 		5BA96E67281944CE004CB1CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				5B41BC91281B490B00410759 /* Tracker.swift */,
 				5B41BC93281B492000410759 /* Bookmarks.swift */,
 				5B41BCA2281D30F000410759 /* ResinCalculator.swift */,
+				5B9E64B4282A4971003370E0 /* ResultView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				5BA96FC228195C47004CB1CA /* ModelData.swift in Sources */,
 				5B41BC94281B492000410759 /* Bookmarks.swift in Sources */,
 				5B41BCA1281C345700410759 /* glovar.swift in Sources */,
+				5B9E64B5282A4971003370E0 /* ResultView.swift in Sources */,
 				5B41BC78281A793000410759 /* CharacterList.swift in Sources */,
 				5B41BCA3281D30F000410759 /* ResinCalculator.swift in Sources */,
 				5BA96E68281944CE004CB1CA /* ContentView.swift in Sources */,

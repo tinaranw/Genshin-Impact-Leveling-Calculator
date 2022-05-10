@@ -34,11 +34,11 @@ struct CharactersCollectionViewCell: View {
         VStack {
             ZStack{
                 if characters[index].rarity == "legendary" {
-                    Image("background_5star")
+                    Image("brownsquare")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                 } else {
-                    Image("background_4star")
+                    Image("bluesquare")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                 }
@@ -111,9 +111,7 @@ struct CharactersCollectionViewCell: View {
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: darkgray, radius: 3, x: 0, y: 1)
-        .onTapGesture {
-            print("\(characters[index].name)")
-        }
+        
         
     }
     

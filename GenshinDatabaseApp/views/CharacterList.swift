@@ -9,30 +9,33 @@ import Foundation
 import SwiftUI
 
 struct CharacterList: View {
+    @ObservedObject var chosenCharacter:Character
+    
     
     var body: some View {
-        NavigationView{
-            
-            ScrollView(.vertical, showsIndicators: false){
-                ForEach(0..<CharactersCollectionViewCell.row){i  in
-                    HStack{
-                        ForEach(0..<CharactersCollectionViewCell.column){j  in
-                            NavigationLink(destination: LevelUpCalculator()){
-                                CharactersCollectionViewCell(row: i, column: j)
-                            }
+        
+        
+        ScrollView(.vertical, showsIndicators: false){
+            ForEach(0..<CharactersCollectionViewCell.row){i  in
+                HStack{
+                    ForEach(0..<CharactersCollectionViewCell.column){j  in
+                        NavigationLink(destination:
+                                        LevelUpCalculator(character: characters[(i + j + (i*2))])){
+                            CharactersCollectionViewCell(row: i, column: j)
                         }
                     }
                 }
             }
-            .padding(20)
-            
-            .navigationTitle("Characters")
         }
+        .padding(20)
+        
+        //            .navigationTitle("Characters")
+        
     }
 }
 
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterList()
+        CharacterList(chosenCharacter: characters[1])
     }
 }

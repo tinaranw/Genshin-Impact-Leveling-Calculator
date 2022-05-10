@@ -14,19 +14,37 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            Tracker()
-                .tabItem {
-                    Label("Tracker", systemImage: "calendar")
-                }
+            NavigationView{
+                Tracker()
+                    .navigationTitle("Tracker")
+                    .navigationBarHidden(true)
+                
+                
+            }
+            .tabItem {
+                Label("Tracker", systemImage: "calendar")
+            }
             
-            CharacterList()
-                .tabItem {
-                    Label("Calculator", systemImage: "number")
-                }
-            LevelUpCalculator()
-                .tabItem {
-                    Label("Bookmarks", systemImage: "bookmark.fill")
-                }
+            NavigationView{
+                CharacterList(chosenCharacter: characters[1])
+                    .navigationTitle("Characters")
+                
+            }
+            .tabItem {
+                Label("Calculator", systemImage: "number")
+            }
+            
+            NavigationView{
+                Bookmarks()
+                    .navigationTitle("Bookmarks")
+                
+            }
+            .tabItem {
+                Label("Bookmarks", systemImage: "bookmark.fill")
+            }
+            
+            
+            
         }
     }
 }

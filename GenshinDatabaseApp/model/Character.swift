@@ -7,8 +7,10 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
-struct Character: Identifiable, Decodable {
+class Character: Identifiable, Decodable, ObservableObject {
+    
     var id: Int
     var name: String
     var description: String
@@ -16,23 +18,23 @@ struct Character: Identifiable, Decodable {
     var rarity: String
     var vision: String
     var profileImage: String
-    var burst: Burst
     var attack: Attack
     var elementalSkill: ElementalSkill
+    var burst: Burst
    
 }
 
-struct Burst: Codable {
+struct Burst: Decodable {
     var name, description: String
     var priority: Int
 }
 
-struct Attack: Codable {
+struct Attack: Decodable {
     var name, description: String
     var priority: Int
 }
 
-struct ElementalSkill: Codable {
+struct ElementalSkill: Decodable {
     var name, description: String
     var priority: Int
 }

@@ -25,12 +25,12 @@ struct Tracker: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     ZStack{
                         HStack{
-                            Image("background_5star")
+                            Image("brownsquare")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 80, height: 80)
                                 .clipShape(Circle())
-                            Spacer()
+                           
                         }
                         .padding(.top, -10)
                         HStack{
@@ -39,7 +39,7 @@ struct Tracker: View {
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 80, height: 80)
                                 .clipShape(Circle())
-                            Spacer()
+                           
                         }
                         .padding(.top, -10)
                     }
@@ -76,7 +76,10 @@ struct Tracker: View {
                 
             }
             .padding(.horizontal)
+            .padding(.top, 20)
+            
         }
+        
         
     }
     
