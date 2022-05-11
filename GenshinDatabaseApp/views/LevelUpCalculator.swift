@@ -271,6 +271,9 @@ struct LevelUpCalculator: View {
     let purple = Color(0x9A6CDB)
     let accentBlue = Color(0xB7CADB)
     
+    //Navigation
+    @State private var isActive = false
+    
     var body: some View {
         
         
@@ -634,10 +637,12 @@ struct LevelUpCalculator: View {
                                 Group{
                                     Spacer()
                                         .frame(height: 30)
-                                    Button("Calculate", action: calculateResources).frame(minWidth: 100, maxWidth: .infinity, minHeight: 44)
-                                        .background(accentBlue)
-                                        .foregroundColor(.white)
-                                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                                    NavigationLink(destination: ResultView(), isActive: $isActive){
+                                        Button("Calculate", action: calculateResources).frame(minWidth: 100, maxWidth: .infinity, minHeight: 44)
+                                            .background(accentBlue)
+                                            .foregroundColor(.white)
+                                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                                    }
                                     
                                 }
                             }
@@ -839,6 +844,8 @@ struct LevelUpCalculator: View {
         //Calculate Total Boss Drops
         totaltalentbossdrops = na_talentbossdrops + es_talentbossdrops + burst_talentbossdrops
         print("Total Boss Drops Needed for Leveling up Talents: " + String(totaltalentbossdrops))
+        
+        isActive = true
         
         
         
