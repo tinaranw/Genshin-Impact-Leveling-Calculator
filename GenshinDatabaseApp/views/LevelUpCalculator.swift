@@ -12,26 +12,148 @@ struct LevelUpCalculator: View {
     
     let character:Character
     
+//    @ObservedObject var result:Result
+    
     //Data
     //Character Info
     
     //Character Level
-    @State private var currentlevel = 0
-    @State private var desiredlevel = 0
+    @State private var currentlevel = 1
+    @State private var desiredlevel = 1
+    
+    //Character Mora Cost
+    @State private var totallevelupcost = 0
+    
+    //Character EXP Books
+    @State private var heros_wit = 0
+    @State private var adv_exp = 0
+    @State private var wand_adv = 0
+    
+    //Character Normal Boss Materials
+    @State private var normalbossmaterial = 0
+    
+    var normalbossdrops = [
+        0,
+        0,
+        2,
+        4,
+        8,
+        12,
+        20
+    ]
+    
+    //Character Local Materials
+    @State private var localmaterial = 0
+    
+    var localspecialties = [
+        0,
+        3,
+        10,
+        20,
+        30,
+        45,
+        60
+    ]
+    
+    
     
     //Normal Attack Talent Level
-    @State private var currentnatalentlevel = 0
-    @State private var desirednatalentlevel = 0
+    @State private var currentnatalentlevel = 1
+    @State private var desirednatalentlevel = 1
     
     //Elemental Skill Talent Level
-    @State private var currentestalentlevel = 0
-    @State private var desiredestalentlevel = 0
+    @State private var currentestalentlevel = 1
+    @State private var desiredestalentlevel = 1
     
     //Burst Talent Level
-    @State private var currentbursttalentlevel = 0
-    @State private var desiredbursttalentlevel = 0
+    @State private var currentbursttalentlevel = 1
+    @State private var desiredbursttalentlevel = 1
     
-    //Character EXP
+    //Crown of Insight
+    @State private var na_crown = 0
+    @State private var es_crown = 0
+    @State private var burst_crown = 0
+    @State private var totalcrown = 0
+    
+    //Talent Boss Drops
+    @State private var na_talentbossdrops = 0
+    @State private var es_talentbossdrops = 0
+    @State private var burst_talentbossdrops = 0
+    @State private var totaltalentbossdrops = 0
+    
+    //Talent Cost
+    @State private var na_talentcost = 0
+    @State private var es_talentcost = 0
+    @State private var burst_talentcost = 0
+    @State private var totaltalentcost = 0
+    
+    //Talent Common Books
+    @State private var na_talentbooks = 0
+    @State private var es_talentbooks = 0
+    @State private var burst_talentbooks = 0
+    @State private var totaltalentbooks = 0
+    
+    var talentBossDrops = [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        0
+    ]
+    
+    //Talent Materials
+    var talentMaterials = [
+        0,
+        6,
+        3,
+        4,
+        6,
+        9,
+        4,
+        6,
+        9,
+        12,
+        0
+    ]
+    
+    //Talent Books
+    var talentBooks = [
+        0,
+        3,
+        6,
+        12,
+        18,
+        27,
+        36,
+        54,
+        108,
+        144,
+        0
+    ]
+    
+    //Character Talent Cost
+    var talentCost = [
+        0,
+        12500,
+        17500,
+        25000,
+        30000,
+        37500,
+        120000,
+        260000,
+        450000,
+        700000,
+        0
+        
+    ]
+    
+    //Character Ascension Cost
     var ascensionCost = [
         0,
         20000,
@@ -335,7 +457,35 @@ struct LevelUpCalculator: View {
                                 }
                                 
                                 Group{
-                                    cardTalentDetail
+                                    HStack{
+                                        VStack(alignment: .leading){
+                                            Text(character.attack.name)
+                                                .font(.system(size: 16))
+                                            HStack{
+                                                Text("Priority:")
+                                                    .font(.system(size: 14))
+                                                ForEach((1...character.attack.priority), id: \.self) { priority in
+                                                        Image(systemName: "star.fill")
+                                                            .resizable()
+                                                            .frame(width: 12.0, height: 12.0)
+                                                            }
+                                                if(character.attack.priority < 5){
+                                                    ForEach((1...(5-character.attack.priority)), id: \.self) { priority in
+                                                        Image(systemName: "star")
+                                                            .resizable()
+                                                            .frame(width: 12.0, height: 12.0)
+                                                                }
+                                                }
+                                            }
+                                        }
+                                        Spacer()
+                                        
+                                    }
+                                    .padding(.horizontal)
+                                    .frame(width: .infinity, height: 100)
+                                    .background(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .shadow(color: darkgray, radius: 3, x: 0, y: 1)
                                     
                                     HStack{
                                         VStack{
@@ -366,7 +516,35 @@ struct LevelUpCalculator: View {
                                     .frame(height: 10)
                                 
                                 Group{
-                                    cardTalentDetail
+                                    HStack{
+                                        VStack(alignment: .leading){
+                                            Text(character.elementalSkill.name)
+                                                .font(.system(size: 16))
+                                            HStack{
+                                                Text("Priority:")
+                                                    .font(.system(size: 14))
+                                                ForEach((1...character.elementalSkill.priority), id: \.self) { priority in
+                                                        Image(systemName: "star.fill")
+                                                            .resizable()
+                                                            .frame(width: 12.0, height: 12.0)
+                                                            }
+                                                if(character.elementalSkill.priority < 5){
+                                                    ForEach((1...(5-character.elementalSkill.priority)), id: \.self) { priority in
+                                                        Image(systemName: "star")
+                                                            .resizable()
+                                                            .frame(width: 12.0, height: 12.0)
+                                                                }
+                                                }
+                                            }
+                                        }
+                                        Spacer()
+                                        
+                                    }
+                                    .padding(.horizontal)
+                                    .frame(width: .infinity, height: 100)
+                                    .background(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .shadow(color: darkgray, radius: 3, x: 0, y: 1)
                                     
                                     HStack{
                                         VStack{
@@ -397,7 +575,36 @@ struct LevelUpCalculator: View {
                                     .frame(height: 10)
                                 
                                 Group{
-                                    cardTalentDetail
+                                    HStack{
+                                        VStack(alignment: .leading){
+                                            Text(character.burst.name)
+                                                .font(.system(size: 16))
+                                            HStack{
+                                                Text("Priority:")
+                                                    .font(.system(size: 14))
+                                                
+                                                ForEach((1...character.burst.priority), id: \.self) { priority in
+                                                        Image(systemName: "star.fill")
+                                                            .resizable()
+                                                            .frame(width: 12.0, height: 12.0)
+                                                            }
+                                                if(character.burst.priority < 5){
+                                                    ForEach((1...(5-character.burst.priority)), id: \.self) { priority in
+                                                        Image(systemName: "star")
+                                                            .resizable()
+                                                            .frame(width: 12.0, height: 12.0)
+                                                                }
+                                                }
+                                            }
+                                        }
+                                        Spacer()
+                                        
+                                    }
+                                    .padding(.horizontal)
+                                    .frame(width: .infinity, height: 100)
+                                    .background(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .shadow(color: darkgray, radius: 3, x: 0, y: 1)
                                     
                                     HStack{
                                         VStack{
@@ -456,36 +663,6 @@ struct LevelUpCalculator: View {
         
         
     }
-    //VIEWS
-    //Talent Cards
-    var cardTalentDetail:some View{
-        HStack{
-            VStack(alignment: .leading){
-                Text("Talent Name")
-                    .font(.system(size: 16))
-                HStack{
-                    Text("Priority:")
-                        .font(.system(size: 14))
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .frame(width: 12.0, height: 12.0)
-                    Image(systemName: "star")
-                        .resizable()
-                        .frame(width: 12.0, height: 12.0)
-                    Image(systemName: "star")
-                        .resizable()
-                        .frame(width: 12.0, height: 12.0)
-                }
-            }
-            Spacer()
-            
-        }
-        .padding(.horizontal)
-        .frame(width: .infinity, height: 100)
-        .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .shadow(color: darkgray, radius: 3, x: 0, y: 1)
-    }
     
     
     //FUNCTIONS
@@ -501,44 +678,32 @@ struct LevelUpCalculator: View {
         return scale < 1 ? scale : 1
     }
     
-    func calculateCharLevel(){
-        
-    }
-    
-    func calculateTalentLevel(){
-        
-    }
-    
     func calculateResources(){
         
         //Calculate EXP
         let startLevel = currentlevel, endLevel = desiredlevel-1;
-        let totalExp = characterExp[startLevel...endLevel].reduce(0, +)
-        print(startLevel)
-        print(endLevel)
-        print(totalExp)
+        var total_mora = 0
+        if(desiredlevel == 1){
+            print("Total Books: 0")
+            print("Total Mora: 0")
+        } else {
+            let totalExp = characterExp[startLevel...endLevel].reduce(0, +)
+            heros_wit = totalExp/20000
+            let heros_wit_remainder = totalExp%20000
+            adv_exp = heros_wit_remainder/5000
+            let adv_exp_remainder = heros_wit_remainder%5000
+            wand_adv = adv_exp_remainder/1000
+            let wand_adv_remainder = adv_exp_remainder%1000
+            
+            print("Total Hero's Wit: " + String(heros_wit))
+            print("Total Adventurer's Exp: " + String(adv_exp))
+            print("Total Wanderer's Adv: " + String(wand_adv))
+            print("Total EXP Wasted: " +  String(wand_adv_remainder))
+            
+            //Calculate Level Up Cost
+            total_mora = totalExp/5
+        }
         
-        
-        //Calculate Total Book
-        //Hero's wit: 20,000
-        //Adv exp: 5000
-        //Wanderer's advice: 1000
-        
-        let heros_wit = totalExp/20000
-        let heros_wit_remainder = totalExp%20000
-        let adv_exp = heros_wit_remainder/5000
-        let adv_exp_remainder = heros_wit_remainder%5000
-        let wand_adv = adv_exp_remainder/1000
-        let wand_adv_remainder = adv_exp_remainder%1000
-        
-        print("Total Hero's Wit: " + String(heros_wit))
-        print("Total Adventurer's Exp: " + String(adv_exp))
-        print("Total Wanderer's Adv: " + String(wand_adv))
-        print("Total EXP Wasted: " +  String(wand_adv_remainder))
-        
-        //Calculate Level Up Cost
-        let total_mora = totalExp/5
-        print("Total Mora: " +  String(total_mora))
         
         //Calculate Ascension Cost
         var currentAscension = 0
@@ -581,13 +746,116 @@ struct LevelUpCalculator: View {
         }
         
         let startAsc = currentAscension, endAsc = desiredAscension-1;
-        let totalAscCost = ascensionCost[startAsc...endAsc].reduce(0, +)
-        print("Total Ascension Cost: " + String(totalAscCost))
-
-        let totalResourcesMora = total_mora + totalAscCost
-        print("Total Mora Needed: " + String(totalResourcesMora))
+        var totalAscCost = 0
+        if(desiredAscension == 1){
+            print("Total Ascension Cost: 0")
+        } else {
+            totalAscCost = ascensionCost[startAsc...endAsc].reduce(0, +)
+            normalbossmaterial = normalbossdrops[startAsc...endAsc].reduce(0, +)
+            localmaterial = localspecialties[startAsc...endAsc].reduce(0, +)
+            
+        }
+        totallevelupcost = total_mora + totalAscCost
+        print("Total Mora Needed for Leveling Up a Character: " + String(totallevelupcost))
+        print("Total Normal Boss Materials Needed for Leveling Up a Character: " + String(normalbossmaterial))
+        print("Total Local Materials Needed for Leveling Up a Character: " + String(localmaterial))
+        
+        //Calculate Talent
+        //Calculate Normal Attack Talent Level
+        let startAttackTalent = currentnatalentlevel, endAttackTalent = desirednatalentlevel-1;
+        if(desirednatalentlevel == 1){
+        } else {
+            na_talentcost = talentCost[startAttackTalent...endAttackTalent].reduce(0, +)
+            
+            //Calculate Normal Talent Books
+            let startAttackBook = currentnatalentlevel, endAttackBook = desirednatalentlevel-1;
+            na_talentbooks = talentBooks[startAttackBook...endAttackBook].reduce(0, +)
+            
+            //Crown
+            if(desirednatalentlevel == 10){
+                na_crown = 1
+            }
+            
+            //Weekly Boss Drops
+            let startAttackBossDrops = currentnatalentlevel, endAttackBossDrops = desirednatalentlevel-1;
+            na_talentbossdrops = talentBossDrops[startAttackBossDrops...endAttackBossDrops].reduce(0, +)
+        }
+        
+        //Calculate Elemental Skill Talent Level
+        let startElementalTalent = currentestalentlevel, endElementalTalent = desiredestalentlevel-1;
+        if(desiredestalentlevel == 1){
+        } else {
+            es_talentcost = talentCost[startElementalTalent...endElementalTalent].reduce(0, +)
+            
+            //Calculate Elemental Talent Books
+            let startElementalBook = currentestalentlevel, endElementalBook = desiredestalentlevel-1;
+            es_talentbooks = talentBooks[startElementalBook...endElementalBook].reduce(0, +)
+            
+            //Crown
+            if(desiredestalentlevel == 10){
+                es_crown = 1
+            }
+            
+            //Weekly Boss Drops
+            let startElementalBossDrops = currentestalentlevel, endElementalBossDrops = desiredestalentlevel-1;
+            es_talentbossdrops = talentBossDrops[startElementalBossDrops...endElementalBossDrops].reduce(0, +)
+        }
+        
+        //Calculate Burst Talent Level
+        let startBurstTalent = currentbursttalentlevel, endBurstTalent = desiredbursttalentlevel-1;
+        if(desiredbursttalentlevel == 1){
+        } else {
+            burst_talentcost = talentCost[startBurstTalent...endBurstTalent].reduce(0, +)
+            
+            //Calculate Normal Talent Books
+            let startBurstBook = currentbursttalentlevel, endAttackBook = desiredbursttalentlevel-1;
+            burst_talentbooks = talentBooks[startBurstBook...endAttackBook].reduce(0, +)
+            
+            //Crown
+            if(desiredbursttalentlevel == 10){
+                burst_crown = 1
+            }
+            
+            //Weekly Boss Drops
+            let startBurstBossDrops = currentbursttalentlevel, endBurstBossDrops = desiredbursttalentlevel-1;
+            burst_talentbossdrops = talentBossDrops[startBurstBossDrops...endBurstBossDrops].reduce(0, +)
+        }
         
         
+        //Talent: Mora, Crown, Boss Drops,Books
+        
+        //Calculate Total Books
+        totaltalentbooks = na_talentbooks + es_talentbooks + burst_talentbooks
+        print("Total Common Books Needed for Leveling up Talents: " + String(totaltalentbooks))
+        
+        //Calculate Total Talent Cost
+        totaltalentcost = na_talentcost + es_talentcost + burst_talentcost
+        print("Total Mora Needed for Leveling up Talents: " + String(totaltalentcost))
+        
+        //Calculate Total Crown
+        totalcrown = na_crown + es_crown + burst_crown
+        print("Total Crown Needed for Leveling up Talents: " + String(totalcrown))
+        
+        //Calculate Total Boss Drops
+        totaltalentbossdrops = na_talentbossdrops + es_talentbossdrops + burst_talentbossdrops
+        print("Total Boss Drops Needed for Leveling up Talents: " + String(totaltalentbossdrops))
+        
+        
+        
+//        result.character = character
+//        result.characterCost.heros_wit = heros_wit
+//        result.characterCost.adv_exp = adv_exp
+//        result.characterCost.wand_adv = wand_adv
+//        result.characterCost.mora = totallevelupcost
+//        result.characterCost.normal_boss_drops = normalbossmaterial
+//        result.characterCost.local_mat = localmaterial
+//        result.talentCost.mora = totaltalentcost
+//        result.talentCost.common_books = totaltalentbooks
+//        result.talentCost.crown = totalcrown
+//        result.talentCost.weekly_boss_drops = totaltalentbossdrops
+//
+        
+ 
         
     }
     
