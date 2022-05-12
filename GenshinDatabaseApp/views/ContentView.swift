@@ -29,12 +29,12 @@ struct ContentView: View {
         TabView {
             NavigationView{
                 Tracker()
-                    .navigationBarTitle(Text("Tracker").font(.subheadline), displayMode: .large)
+                    .navigationBarTitle(Text("Home").font(.subheadline), displayMode: .large)
 
 
             }
             .tabItem {
-                Label("Tracker", systemImage: "calendar")
+                Label("Home", systemImage: "house.fill")
             }
 
             NavigationView{

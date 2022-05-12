@@ -29,6 +29,7 @@
 		5B41BCA3281D30F000410759 /* ResinCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BCA2281D30F000410759 /* ResinCalculator.swift */; };
 		5B9E64B5282A4971003370E0 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64B4282A4971003370E0 /* ResultView.swift */; };
 		5B9E64B8282B88B8003370E0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64B7282B88B8003370E0 /* Result.swift */; };
+		5B9E64BA282D20F6003370E0 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64B9282D20F6003370E0 /* Loading.swift */; };
 		5BA96E66281944CE004CB1CA /* GenshinDatabaseAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */; };
 		5BA96E68281944CE004CB1CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E67281944CE004CB1CA /* ContentView.swift */; };
 		5BA96E6A281944CF004CB1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA96E69281944CF004CB1CA /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		5B9E64B4282A4971003370E0 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		5B9E64B6282A9645003370E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5B9E64B7282B88B8003370E0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		5B9E64B9282D20F6003370E0 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		5BA96E62281944CE004CB1CA /* GenshinDatabaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenshinDatabaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppApp.swift; sourceTree = "<group>"; };
 		5BA96E67281944CE004CB1CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				5B41BC93281B492000410759 /* Bookmarks.swift */,
 				5B41BCA2281D30F000410759 /* ResinCalculator.swift */,
 				5B9E64B4282A4971003370E0 /* ResultView.swift */,
+				5B9E64B9282D20F6003370E0 /* Loading.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				5B9E64B8282B88B8003370E0 /* Result.swift in Sources */,
 				5BA96FC028195BBA004CB1CA /* Character.swift in Sources */,
 				5BA96FC228195C47004CB1CA /* ModelData.swift in Sources */,
+				5B9E64BA282D20F6003370E0 /* Loading.swift in Sources */,
 				5B41BC94281B492000410759 /* Bookmarks.swift in Sources */,
 				5B41BCA1281C345700410759 /* glovar.swift in Sources */,
 				5B9E64B5282A4971003370E0 /* ResultView.swift in Sources */,
@@ -559,6 +563,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GenshinDatabaseApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "My Dodoco";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -589,6 +594,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GenshinDatabaseApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "My Dodoco";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
