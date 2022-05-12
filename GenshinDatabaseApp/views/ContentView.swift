@@ -30,34 +30,39 @@ struct ContentView: View {
             NavigationView{
                 Tracker()
                     .navigationBarTitle(Text("Tracker").font(.subheadline), displayMode: .large)
-//                    .navigationBarHidden(true)
-                
-                
+
+
             }
             .tabItem {
                 Label("Tracker", systemImage: "calendar")
             }
-            
+
             NavigationView{
                 CharacterList(chosenCharacter: characters[1])
                     .navigationTitle("Characters")
-                
+
             }
             .tabItem {
                 Label("Calculator", systemImage: "number")
             }
-            
+
             NavigationView{
                 Bookmarks()
                     .navigationTitle("Bookmarks")
-                
+
             }
             .tabItem {
                 Label("Bookmarks", systemImage: "bookmark.fill")
             }
-            
+
         }
         .accentColor(darkCream)
+        
+//        NavigationView{
+//            CharacterList(chosenCharacter: characters[1])
+//                .navigationTitle("Characters")
+//
+//        }
         
     }
 }

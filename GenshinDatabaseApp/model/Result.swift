@@ -34,7 +34,7 @@ struct Result: Decodable {
     var chara_wand_adv:Int
     var chara_mora:Int
     var chara_normal_boss_drops:Int
-    var local_mat:Int
+    var chara_local_mat:Int
     var talent_mora:Int
     var talent_common_books:Int
     var talent_crown:Int

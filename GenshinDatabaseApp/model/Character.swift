@@ -21,6 +21,13 @@ class Character: Identifiable, Decodable, ObservableObject {
     var attack: Attack
     var elementalSkill: ElementalSkill
     var burst: Burst
+    var normalBossDrops: String
+    var normalBossDropsImage: String
+    var ascensionMats: String
+    var ascensionMatsImage: String
+    var talentBooks: String
+    var weeklyBossDrops: String
+    var weeklyBossDropsImage: String
    
 }
 

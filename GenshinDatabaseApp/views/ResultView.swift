@@ -163,34 +163,209 @@ struct ResultView: View {
                                 //Character Resources
                                 Group{
                                     Text("Character Resources")
-                                        .font(.custom("Georgia", size: 18, relativeTo: .headline))
+                                        .font(.custom("Georgia", size: 20, relativeTo: .headline))
                                     
                                     VStack{
-                                        HStack{
-                                            Image("xiao")
-                                            Text("Hero's Wit")
-                                            Text(String(result.chara_heros_wit))
+                                        Group{
+                                            HStack{
+                                                Image("heroswit")
+                                                    .resizable()
+                                                    .scaledToFill() // <=== Saves aspect ratio
+                                                    .frame(width: 40.0, height:40)
+                                                
+                                                Text("Hero's Wit")
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                HStack{
+                                                    Text("x")
+                                                    Text(String(result.chara_heros_wit))
+                                                }
+                                                
+                                            }
+                                            Divider()
+                                        }
+                                        
+                                        Group{
+                                            HStack{
+                                                Image("advexp")
+                                                    .resizable()
+                                                    .scaledToFill() // <=== Saves aspect ratio
+                                                    .frame(width: 40.0, height:40)
+                                                
+                                                Text("Adventurer's Experience")
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                HStack{
+                                                    Text("x")
+                                                    Text(String(result.chara_adv_exp))
+                                                }
+                                                
+                                            }
+                                            Divider()
+                                        }
+                                        
+                                        Group{
+                                            HStack{
+                                                Image("wandadv")
+                                                    .resizable()
+                                                    .scaledToFill() // <=== Saves aspect ratio
+                                                    .frame(width: 40.0, height:40)
+                                                
+                                                Text("Wanderer's Advice")
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                HStack{
+                                                    Text("x")
+                                                    Text(String(result.chara_wand_adv))
+                                                }
+                                                
+                                            }
+                                            Divider()
+                                        }
+                                        
+                                        Group{
+                                            HStack{
+                                                Image("mora")
+                                                    .resizable()
+                                                    .scaledToFill() // <=== Saves aspect ratio
+                                                    .frame(width: 40.0, height:40)
+                                                
+                                                Text("Mora")
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                HStack{
+                                                    Text("x")
+                                                    Text(String(result.chara_mora))
+                                                }
+                                                
+                                            }
+                                            Divider()
+                                        }
+                                        
+                                        Group{
+                                            HStack{
+                                                Image(character.normalBossDropsImage)
+                                                    .resizable()
+                                                    .scaledToFill() // <=== Saves aspect ratio
+                                                    .frame(width: 40.0, height:40)
+                                                
+                                                Text(character.normalBossDrops)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                HStack{
+                                                    Text("x")
+                                                    Text(String(result.chara_normal_boss_drops))
+                                                }
+                                                
+                                            }
+                                            Divider()
+                                        }
+                                        
+                                        Group{
+                                            HStack{
+                                                Image(character.ascensionMatsImage)
+                                                    .resizable()
+                                                    .scaledToFill() // <=== Saves aspect ratio
+                                                    .frame(width: 30.0, height:30)
+                                                
+                                                Text(character.ascensionMats)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                HStack{
+                                                    Text("x")
+                                                    Text(String(result.chara_local_mat))
+                                                }
+                                                
+                                            }
                                         }
                                         
                                     }
                                     .padding(.horizontal)
-                                    .frame(width: .infinity, height: 100)
+                                    .frame(width: .infinity, height: 380)
                                     .background(.white)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .shadow(color: darkgray, radius: 3, x: 0, y: 1)
                                 }
                                 
+                                Spacer()
+                                    .frame(height: 20)
+                                
                                 //Talent Resources
+                                Group{
+                                    Text("Talent Resources")
+                                        .font(.custom("Georgia", size: 20, relativeTo: .headline))
+                                    
+                                    VStack{
+                                        Group{
+                                            HStack{
+                                                Image("mora")
+                                                    .resizable()
+                                                    .scaledToFill() // <=== Saves aspect ratio
+                                                    .frame(width: 40.0, height:40)
+                                                
+                                                Text("Mora")
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                HStack{
+                                                    Text("x")
+                                                    Text(String(result.talent_mora))
+                                                }
+                                            }
+                                            Divider()
+                                        }
+                                        Group{
+                                            HStack{
+                                                Image(character.talentBooks)
+                                                    .resizable()
+                                                    .scaledToFill() // <=== Saves aspect ratio
+                                                    .frame(width: 40.0, height:40)
+                                                
+                                                Text(character.talentBooks)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                HStack{
+                                                    Text("x")
+                                                    Text(String(result.talent_common_books))
+                                                }
+                                            }
+                                            Divider()
+                                        }
+                                        Group{
+                                            HStack{
+                                                Image("crown")
+                                                    .resizable()
+                                                    .scaledToFill() // <=== Saves aspect ratio
+                                                    .frame(width: 40.0, height:40)
+                                                
+                                                Text("Crown of Insight")
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                HStack{
+                                                    Text("x")
+                                                    Text(String(result.talent_crown))
+                                                }
+                                            }
+                                            Divider()
+                                        }
+                                        Group{
+                                            HStack{
+                                                Image(character.weeklyBossDropsImage)
+                                                    .resizable()
+                                                    .scaledToFill() // <=== Saves aspect ratio
+                                                    .frame(width: 40.0, height:40)
+                                                
+                                                Text(character.weeklyBossDrops)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                HStack{
+                                                    Text("x")
+                                                    Text(String(result.talent_weekly_boss_drops))
+                                                }
+                                            }
+                                        }
+                                        
+                                    }
+                                    .padding(.horizontal)
+                                    .frame(width: .infinity, height: 250)
+                                    .background(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                                }
                             }
-                            
-                            
-                            
+ 
                             
                         })
-                        
-                        //
-                        
-                        
+
                         
                     }
                     .padding(20)
@@ -226,7 +401,7 @@ struct ResultView_Previews: PreviewProvider {
         chara_wand_adv: 0,
         chara_mora: 0,
         chara_normal_boss_drops: 0,
-        local_mat: 0,
+        chara_local_mat: 0,
         talent_mora: 0,
         talent_common_books: 0,
         talent_crown: 0,
