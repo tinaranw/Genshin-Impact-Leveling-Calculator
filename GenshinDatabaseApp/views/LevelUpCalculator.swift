@@ -54,9 +54,6 @@ struct LevelUpCalculator: View {
         45,
         60
     ]
-    
-    
-    
     //Normal Attack Talent Level
     @State private var currentnatalentlevel = 1
     @State private var desirednatalentlevel = 1
@@ -259,10 +256,8 @@ struct LevelUpCalculator: View {
         0
     ]
     
-    
     //View
     @State var offset: CGFloat = 0
-    
     
     //Color
     let lightgray = Color(0xeeeeee)
@@ -273,6 +268,21 @@ struct LevelUpCalculator: View {
     
     //Navigation
     @State private var isActive = false
+    
+    //save var for result
+    @State public var calc_result = Result(
+        chara_heros_wit: 0,
+        chara_adv_exp: 0,
+        chara_wand_adv: 0,
+        chara_mora: 0,
+        chara_normal_boss_drops: 0,
+        local_mat: 0,
+        talent_mora: 0,
+        talent_common_books: 0,
+        talent_crown: 0,
+        talent_weekly_boss_drops: 0
+        
+    )
     
     var body: some View {
         
@@ -637,7 +647,7 @@ struct LevelUpCalculator: View {
                                 Group{
                                     Spacer()
                                         .frame(height: 30)
-                                    NavigationLink(destination: ResultView(), isActive: $isActive){
+                                    NavigationLink(destination: ResultView(character: character, result: calc_result), isActive: $isActive){
                                         Button("Calculate", action: calculateResources).frame(minWidth: 100, maxWidth: .infinity, minHeight: 44)
                                             .background(accentBlue)
                                             .foregroundColor(.white)
@@ -847,20 +857,20 @@ struct LevelUpCalculator: View {
         
         isActive = true
         
-        
-        
-//        result.character = character
-//        result.characterCost.heros_wit = heros_wit
-//        result.characterCost.adv_exp = adv_exp
-//        result.characterCost.wand_adv = wand_adv
-//        result.characterCost.mora = totallevelupcost
-//        result.characterCost.normal_boss_drops = normalbossmaterial
-//        result.characterCost.local_mat = localmaterial
-//        result.talentCost.mora = totaltalentcost
-//        result.talentCost.common_books = totaltalentbooks
-//        result.talentCost.crown = totalcrown
-//        result.talentCost.weekly_boss_drops = totaltalentbossdrops
-//
+        calc_result = Result(
+            chara_heros_wit: heros_wit,
+            chara_adv_exp: adv_exp,
+            chara_wand_adv: wand_adv,
+            chara_mora: totallevelupcost,
+            chara_normal_boss_drops: normalbossmaterial,
+            local_mat: localmaterial,
+            talent_mora: totaltalentcost,
+            talent_common_books: totaltalentbooks,
+            talent_crown: totalcrown,
+            talent_weekly_boss_drops: totaltalentbossdrops
+            
+        )
+
         
  
         
