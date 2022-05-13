@@ -26,7 +26,7 @@ struct Loading: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 150.0, height:150.0)
-                        Text("my dodoco")
+                        Text("myDodoco")
                             .font(Font.custom("Georgia", size: 26))
                             .foregroundColor(.black.opacity(0.80))
                     }

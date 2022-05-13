@@ -40,6 +40,11 @@ struct OnBoarding: View {
                     .clipShape(Circle())
                     .buttonStyle(.bordered)
                     Spacer()
+                    Text("© All rights reserved by miHoYo. Other properties belong to their respective owners.")
+                        .font(.system(size: 12))
+                        .multilineTextAlignment(.leading)
+                        .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 70)
+                        
                 }
                 .padding()
             }
