@@ -27,12 +27,17 @@ struct ContentView: View {
     
         
         TabView {
-            NavigationView{
-                Tracker()
-                    .navigationBarTitle(Text("Home").font(.subheadline), displayMode: .large)
-
-
-            }
+//            NavigationView{
+//                Tracker()
+//                    .navigationBarTitle(Text("Home").font(.subheadline), displayMode: .large)
+//
+//
+//            }
+//            .tabItem {
+//                Label("Home", systemImage: "house.fill")
+//            }
+            
+            Tracker()
             .tabItem {
                 Label("Home", systemImage: "house.fill")
             }
@@ -46,14 +51,14 @@ struct ContentView: View {
                 Label("Calculator", systemImage: "number")
             }
 
-            NavigationView{
-                Bookmarks()
-                    .navigationTitle("Bookmarks")
-
-            }
-            .tabItem {
-                Label("Bookmarks", systemImage: "bookmark.fill")
-            }
+//            NavigationView{
+//                Bookmarks()
+//                    .navigationTitle("Bookmarks")
+//
+//            }
+//            .tabItem {
+//                Label("Bookmarks", systemImage: "bookmark.fill")
+//            }
 
         }
         .accentColor(darkCream)

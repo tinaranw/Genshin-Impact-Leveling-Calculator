@@ -30,6 +30,7 @@
 		5B9E64B5282A4971003370E0 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64B4282A4971003370E0 /* ResultView.swift */; };
 		5B9E64B8282B88B8003370E0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64B7282B88B8003370E0 /* Result.swift */; };
 		5B9E64BA282D20F6003370E0 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64B9282D20F6003370E0 /* Loading.swift */; };
+		5B9E64BC282E0277003370E0 /* ScheduleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64BB282E0277003370E0 /* ScheduleCard.swift */; };
 		5BA96E66281944CE004CB1CA /* GenshinDatabaseAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */; };
 		5BA96E68281944CE004CB1CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA96E67281944CE004CB1CA /* ContentView.swift */; };
 		5BA96E6A281944CF004CB1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA96E69281944CF004CB1CA /* Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		5B9E64B6282A9645003370E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5B9E64B7282B88B8003370E0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5B9E64B9282D20F6003370E0 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		5B9E64BB282E0277003370E0 /* ScheduleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCard.swift; sourceTree = "<group>"; };
 		5BA96E62281944CE004CB1CA /* GenshinDatabaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenshinDatabaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA96E65281944CE004CB1CA /* GenshinDatabaseAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenshinDatabaseAppApp.swift; sourceTree = "<group>"; };
 		5BA96E67281944CE004CB1CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				5B41BC9A281B4D5700410759 /* CharactersCollectionViewCell.swift */,
+				5B9E64BB282E0277003370E0 /* ScheduleCard.swift */,
 			);
 			path = widgets;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				5B41BC78281A793000410759 /* CharacterList.swift in Sources */,
 				5B41BCA3281D30F000410759 /* ResinCalculator.swift in Sources */,
 				5BA96E68281944CE004CB1CA /* ContentView.swift in Sources */,
+				5B9E64BC282E0277003370E0 /* ScheduleCard.swift in Sources */,
 				5BA96E66281944CE004CB1CA /* GenshinDatabaseAppApp.swift in Sources */,
 				5B41BC9B281B4D5700410759 /* CharactersCollectionViewCell.swift in Sources */,
 				5B41BC92281B490B00410759 /* Tracker.swift in Sources */,
