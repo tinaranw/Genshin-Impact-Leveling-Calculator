@@ -142,6 +142,10 @@ struct Tracker: View {
                                             .font(.custom("Georgia", size: 15, relativeTo: .headline))
                                             .foregroundColor(.black)
                                             .lineLimit(1)
+                                        Image(chara.vision)
+                                            .resizable()
+                                            .scaledToFill() // <=== Saves aspect ratio
+                                            .frame(width: 20.0, height:20)
                                     }
                                     HStack{
                                         if(chara.rarity == "legendary"){
