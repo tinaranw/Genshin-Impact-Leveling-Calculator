@@ -13,8 +13,6 @@ struct CharacterList: View {
     let backgroundColor = Color(0xFBFBFB)
     
     var body: some View {
-        
-        
         ScrollView(.vertical, showsIndicators: false){
             ForEach(0..<CharactersCollectionViewCell.row){i  in
                 HStack{

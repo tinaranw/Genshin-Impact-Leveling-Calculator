@@ -27,7 +27,7 @@ struct OnBoarding: View {
                         .fontWeight(.bold)
                     Spacer()
                         .frame(height: 10)
-                    Text("Your Own Genshin Impact Character Ascension Calculator")
+                    Text("Your Own Genshin Impact Character Ascension and Talent Calculator")
                         .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 70)
                         .padding(.bottom, 20)
                     Button(action: {

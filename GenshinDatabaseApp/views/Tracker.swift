@@ -52,6 +52,9 @@ struct Tracker: View {
         else if(book == inazumaBook){
             return true
         }
+        else if(mondstadtBook == "all" || liyueBook == "all" || inazumaBook == "all"){
+            return true
+        }
         else{
             return false
         }
