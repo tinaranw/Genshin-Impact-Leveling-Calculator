@@ -110,40 +110,6 @@ struct Tracker: View {
                         .font(.subheadline)
                     
                     HStack(spacing: 10){
-                        //Monstadt
-                        VStack {
-                            ZStack{
-                                Image("brownsquare")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                Image(mondstadtBook)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .padding(20)
-
-                            }
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(mondstadtBook)
-                                        .font(.custom("Georgia", size: 14, relativeTo: .headline))
-                                        .foregroundColor(.black)
-                                    Text("Mondstatd")
-                                        .font(.system(size: 14))
-                                        .lineLimit(1)
-                                    
-                                }
-                                .layoutPriority(100)
-
-                                Spacer()
-                            }
-                            .padding(.bottom, 12)
-                            .padding(.top, 2)
-                            .padding(.horizontal)
-                            
-                        }
-                        .background(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .shadow(color: darkgray, radius: 3, x: 0, y: 1)
                         
                         if(mondstadtBook == "all"){
                             HStack{
@@ -160,6 +126,41 @@ struct Tracker: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(color: darkgray, radius: 3, x: 0, y: 1)
                         } else {
+                            //Monstadt
+                            VStack {
+                                ZStack{
+                                    Image("brownsquare")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                    Image(mondstadtBook)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .padding(20)
+
+                                }
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(mondstadtBook)
+                                            .font(.custom("Georgia", size: 14, relativeTo: .headline))
+                                            .foregroundColor(.black)
+                                        Text("at Mondstatd")
+                                            .font(.system(size: 12))
+                                            .lineLimit(1)
+                                        
+                                    }
+                                    .layoutPriority(100)
+
+                                    Spacer()
+                                }
+                                .padding(.bottom, 12)
+                                .padding(.top, 2)
+                                .padding(.horizontal)
+                                
+                            }
+                            .background(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                            
                             //Liyue
                             VStack {
                                 ZStack{
@@ -177,9 +178,9 @@ struct Tracker: View {
                                         Text(liyueBook)
                                             .font(.custom("Georgia", size: 14, relativeTo: .headline))
                                             .foregroundColor(.black)
-                                        Text("Liyue")
+                                        Text("at Liyue")
                                             .foregroundColor(.black)
-                                            .font(.system(size: 14))
+                                            .font(.system(size: 12))
                                             .lineLimit(1)
                                         
                                     }
@@ -213,9 +214,9 @@ struct Tracker: View {
                                         Text(inazumaBook)
                                             .font(.custom("Georgia", size: 14, relativeTo: .headline))
                                             .foregroundColor(.black)
-                                        Text("Inazuma")
+                                        Text("at Inazuma")
                                             .foregroundColor(.black)
-                                            .font(.system(size: 14))
+                                            .font(.system(size: 12))
                                             .lineLimit(1)
                                         
                                     }

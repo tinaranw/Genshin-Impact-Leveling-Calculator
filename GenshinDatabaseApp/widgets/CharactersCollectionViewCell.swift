@@ -77,7 +77,7 @@ struct CharactersCollectionViewCell: View {
                                 .resizable()
                                 .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(gold)
-                        }
+                        }.padding(.top, -8)
                     } else {
                         HStack(spacing:1.0){
                             Image(systemName: "star.fill")
@@ -96,7 +96,7 @@ struct CharactersCollectionViewCell: View {
                                 .resizable()
                                 .frame(width: 12.0, height: 12.0)
                                 .foregroundColor(purple)
-                        }
+                        }.padding(.top, -8)
                     }
                 }
                 .layoutPriority(100)
