@@ -12,6 +12,7 @@ struct OnBoarding: View {
     var body: some View {
         if isActive {
             ContentView()
+                .preferredColorScheme(.light)
         } else {
             ZStack(alignment: .leading){
                 Image("onboarding")

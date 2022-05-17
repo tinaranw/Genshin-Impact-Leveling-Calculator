@@ -105,27 +105,184 @@ struct Tracker: View {
                     .frame(height: 20)
                 
                 VStack(alignment: .leading){
-                    Text("Today's Schedule")
-                        .font(.custom("Georgia", size: 20, relativeTo: .headline))
-                        .fontWeight(.bold)
-                        .foregroundColor(.gray)
+                    Text("Today's Talent Books")
+                        .foregroundColor(.secondary)
+                        .font(.subheadline)
+                    
+                    HStack(spacing: 10){
+                        //Monstadt
+                        VStack {
+                            ZStack{
+                                Image("brownsquare")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                Image(mondstadtBook)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .padding(20)
+
+                            }
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(mondstadtBook)
+                                        .font(.custom("Georgia", size: 14, relativeTo: .headline))
+                                        .foregroundColor(.black)
+                                    Text("Mondstatd")
+                                        .font(.system(size: 14))
+                                        .lineLimit(1)
+                                    
+                                }
+                                .layoutPriority(100)
+
+                                Spacer()
+                            }
+                            .padding(.bottom, 12)
+                            .padding(.top, 2)
+                            .padding(.horizontal)
+                            
+                        }
+                        .background(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                        
+                        if(mondstadtBook == "all"){
+                            HStack{
+                                VStack(alignment: .leading){
+                                    Text("All domains are open")
+                                        .font(.system(size: 16))
+                                }
+                                Spacer()
+                                
+                            }
+                            .padding(.horizontal)
+                            .frame(width: .infinity, height: 100)
+                            .background(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                        } else {
+                            //Liyue
+                            VStack {
+                                ZStack{
+                                    Image("brownsquare")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                    Image(liyueBook)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .padding(20)
+
+                                }
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(liyueBook)
+                                            .font(.custom("Georgia", size: 14, relativeTo: .headline))
+                                            .foregroundColor(.black)
+                                        Text("Liyue")
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 14))
+                                            .lineLimit(1)
+                                        
+                                    }
+                                    .layoutPriority(100)
+
+                                    Spacer()
+                                }
+                                .padding(.bottom, 12)
+                                .padding(.top, 2)
+                                .padding(.horizontal)
+                                
+                            }
+                            .background(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                            
+                            //Inazuma
+                            VStack {
+                                ZStack{
+                                    Image("brownsquare")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                    Image(inazumaBook)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .padding(20)
+
+                                }
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(inazumaBook)
+                                            .font(.custom("Georgia", size: 14, relativeTo: .headline))
+                                            .foregroundColor(.black)
+                                        Text("Inazuma")
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 14))
+                                            .lineLimit(1)
+                                        
+                                    }
+                                    .layoutPriority(100)
+
+                                    Spacer()
+                                }
+                                .padding(.bottom, 12)
+                                .padding(.top, 2)
+                                .padding(.horizontal)
+                                
+                            }
+                            .background(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                            
+                        }
+                        
+                    }
+                    
+                    Spacer()
+                        .frame(height: 30)
+                    
+                    Text("Today's Characters")
+                        .foregroundColor(.secondary)
+                        .font(.subheadline)
                     
                     ForEach(characters){chara  in
                         if(bookSync(book: chara.talentBooks) == true){
                             HStack{
                                 ZStack{
                                     HStack{
-                                        if(chara.rarity == "legendary"){
-                                            Image("brownsquare")
+                                        if(chara.vision == "anemo"){
+                                            Image("anemosquare")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
-                                                .frame(width: 80, height: 80)
+                                                .frame(width: 90, height: 90)
                                                 .clipShape(Circle())
-                                        } else {
-                                            Image("bluesquare")
+                                        } else if(chara.vision == "geo"){
+                                            Image("geosquare")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
-                                                .frame(width: 80, height: 80)
+                                                .frame(width: 90, height: 90)
+                                                .clipShape(Circle())
+                                        } else if(chara.vision == "pyro"){
+                                            Image("pyrosquare")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 90, height: 90)
+                                                .clipShape(Circle())
+                                        } else if(chara.vision == "electro"){
+                                            Image("electrosquare")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 90, height: 90)
+                                                .clipShape(Circle())
+                                        } else if(chara.vision == "cryo"){
+                                            Image("cryosquare")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 90, height: 90)
+                                                .clipShape(Circle())
+                                        } else if(chara.vision == "hydro"){
+                                            Image("hydrosquare")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 90, height: 90)
                                                 .clipShape(Circle())
                                         }
                                     }
@@ -133,7 +290,7 @@ struct Tracker: View {
                                         Image(chara.profileImage)
                                             .resizable()
                                             .aspectRatio(contentMode: .fill)
-                                            .frame(width: 80, height: 80)
+                                            .frame(width: 90, height: 90)
                                             .clipShape(Circle())
                                     }
                                 }
@@ -142,13 +299,15 @@ struct Tracker: View {
                                 VStack(alignment: .leading){
                                     HStack{
                                         Text(chara.name)
-                                            .font(.custom("Georgia", size: 15, relativeTo: .headline))
+                                            .lineSpacing(0)
+                                            .font(.custom("Georgia", size: 16, relativeTo: .headline))
                                             .foregroundColor(.black)
-                                            .lineLimit(1)
+                                           
+                                        Spacer()
                                         Image(chara.vision)
                                             .resizable()
                                             .scaledToFill() // <=== Saves aspect ratio
-                                            .frame(width: 20.0, height:20)
+                                            .frame(width: 30.0, height:30.0)
                                     }
                                     HStack{
                                         if(chara.rarity == "legendary"){
@@ -194,24 +353,41 @@ struct Tracker: View {
                                                     .foregroundColor(purple)
                                             }
                                         }
-                                    }
+                                    }.padding(.top, -10)
                                     HStack{
+                                        
                                         Image(chara.talentBooks)
                                             .resizable()
-                                            .scaledToFill() // <=== Saves aspect ratio
-                                            .frame(width: 30.0, height:30)
+                                            .scaledToFill()
+                                            .padding(8)
+                                            .background(lightgray)
+                                            .frame(width: 40.0, height: 40.0)
+                                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                                            .overlay(RoundedRectangle(cornerRadius: 2).stroke(lineWidth: 0))
                                         Image(chara.normalBossDropsImage)
                                             .resizable()
-                                            .scaledToFill() // <=== Saves aspect ratio
-                                            .frame(width: 40.0, height:40)
+                                            .scaledToFill()
+                                            .padding(8)
+                                            .background(lightgray)
+                                            .frame(width: 40.0, height: 40.0)
+                                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                                            .overlay(RoundedRectangle(cornerRadius: 2).stroke(lineWidth: 0))
                                         Image(chara.ascensionMatsImage)
                                             .resizable()
-                                            .scaledToFill() // <=== Saves aspect ratio
-                                            .frame(width: 35.0, height:35)
+                                            .scaledToFill()
+                                            .padding(8)
+                                            .background(lightgray)
+                                            .frame(width: 40.0, height: 40.0)
+                                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                                            .overlay(RoundedRectangle(cornerRadius: 2).stroke(lineWidth: 0))
                                         Image(chara.weeklyBossDropsImage)
                                             .resizable()
-                                            .scaledToFill() // <=== Saves aspect ratio
-                                            .frame(width: 40.0, height:40)
+                                            .scaledToFill()
+                                            .padding(8)
+                                            .background(lightgray)
+                                            .frame(width: 40.0, height: 40.0)
+                                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                                            .overlay(RoundedRectangle(cornerRadius: 2).stroke(lineWidth: 0))
                                     }
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -226,7 +402,7 @@ struct Tracker: View {
                             .shadow(color: darkgray, radius: 3, x: 0, y: 1)
                             
                             Spacer()
-                                .frame(height: 20)
+                                .frame(height: 15)
                             
                             
                         }

@@ -1,42 +1,79 @@
 //
-//  ScheduleCard.swift
+//  CharactersCollectionViewCell.swift
 //  GenshinDatabaseApp
 //
-//  Created by Tinara Nathania Wiryonoputro on 13/05/22.
+//  Created by Tinara Nathania Wiryonoputro on 29/04/22.
 //
 
 import SwiftUI
 
 struct ScheduleCard: View {
+    
+    //Row and Column
+    static let column = 3
+    static let row = characters.count/3
+    
+    //Width
+    let width = (UIScreen.main.bounds.width/3 - 80)
+    
     //Color
     let darkgray = Color(0xb1b1b1)
     let lightgray = Color(0xeeeeee)
     let gold = Color(0xFFBA4B)
     let purple = Color(0x9A6CDB)
     
+    //Index
+    public var index = 0
+    init(row: Int, column: Int){
+        index = row + column + (row*2)
+        
+    }
+    
     var body: some View {
-        HStack{
-            VStack(alignment: .leading){
-                Text("Xiao")
-                    .font(.system(size: 16))
-                HStack{
-                    Text("Talent Book:")
-                        .font(.system(size: 14))
-                }
+    
+        VStack {
+            ZStack{
+                Image("brownsquare")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Image("Prosperity")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(20)
+
             }
-            Spacer()
+            
+
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Book Name")
+                        .font(.custom("Georgia", size: 18, relativeTo: .headline))
+                        .foregroundColor(.black)
+                    Text("Location: Forsaken Rift")
+                        .foregroundColor(.black)
+                    
+                }
+                .layoutPriority(100)
+
+                Spacer()
+            }
+            .padding(.bottom, 12)
+            .padding(.top, 2)
+            .padding(.horizontal)
             
         }
-        .padding(.horizontal)
-        .frame(width: .infinity, height: 100)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+        
+        
     }
+    
 }
 
 struct ScheduleCard_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleCard()
+        ScheduleCard(row:0, column:1)
     }
 }
+

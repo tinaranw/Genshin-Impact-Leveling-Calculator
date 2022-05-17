@@ -76,7 +76,7 @@
 		5B41BC85281A8ABF00410759 /* georgia italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "georgia italic.ttf"; path = "../../../../../../../../Downloads/georgia/georgia italic.ttf"; sourceTree = "<group>"; };
 		5B41BC91281B490B00410759 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		5B41BC93281B492000410759 /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
-		5B41BC96281B4C8900410759 /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = characters.json; path = ../../../../../characters.json; sourceTree = "<group>"; };
+		5B41BC96281B4C8900410759 /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = characters.json; path = ../json/characters.json; sourceTree = "<group>"; };
 		5B41BC9A281B4D5700410759 /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B41BCA0281C345700410759 /* glovar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = glovar.swift; sourceTree = "<group>"; };
 		5B41BCA2281D30F000410759 /* ResinCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResinCalculator.swift; sourceTree = "<group>"; };
@@ -571,7 +571,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GenshinDatabaseApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "My Dodoco";
+				INFOPLIST_KEY_CFBundleDisplayName = myDodoco;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -602,7 +602,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GenshinDatabaseApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "My Dodoco";
+				INFOPLIST_KEY_CFBundleDisplayName = myDodoco;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

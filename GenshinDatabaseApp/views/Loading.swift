@@ -17,6 +17,7 @@ struct Loading: View {
     var body: some View {
         if isActive{
             OnBoarding()
+                .preferredColorScheme(.light)
         } else {
             ZStack{
                 lightBlue.ignoresSafeArea()
