@@ -75,6 +75,7 @@ struct Tracker: View {
                             .fontWeight(.bold)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .accessibility(label: Text("Welcome Back, Traveler!"))
                     ZStack{
                         HStack{
                             Image("bluesquare")
@@ -114,7 +115,7 @@ struct Tracker: View {
                         if(mondstadtBook == "all"){
                             HStack{
                                 VStack(alignment: .leading){
-                                    Text("All domains are open")
+                                    Text("All domains are open!")
                                         .font(.system(size: 16))
                                 }
                                 Spacer()
@@ -125,6 +126,7 @@ struct Tracker: View {
                             .background(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                            .accessibility(label: Text("All domains are open on Sunday!"))
                         } else {
                             //Monstadt
                             VStack {
@@ -156,10 +158,12 @@ struct Tracker: View {
                                 .padding(.top, 2)
                                 .padding(.horizontal)
                                 
+                                
                             }
                             .background(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                            .accessibility(label: Text("\(mondstadtBook) is available now in Mondstatd."))
                             
                             //Liyue
                             VStack {
@@ -196,6 +200,7 @@ struct Tracker: View {
                             .background(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                            .accessibility(label: Text("\(liyueBook) is available now in Liyue."))
                             
                             //Inazuma
                             VStack {
@@ -232,7 +237,7 @@ struct Tracker: View {
                             .background(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(color: darkgray, radius: 3, x: 0, y: 1)
-                            
+                            .accessibility(label: Text("\(inazumaBook) is available now in Inazuma."))
                         }
                         
                     }

@@ -12,7 +12,7 @@ struct LevelUpCalculator: View {
     
     let character:Character
     
-//    @ObservedObject var result:Result
+    //    @ObservedObject var result:Result
     
     //Data
     //Character Info
@@ -310,12 +310,14 @@ struct LevelUpCalculator: View {
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: getRect().width, height: minY > 0 ? 180 + minY : nil, alignment: .center)
                                     .cornerRadius(0)
+                                    .accessibility(label: Text("5-star character banner."))
                             } else {
                                 Image("blue")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: getRect().width, height: minY > 0 ? 180 + minY : nil, alignment: .center)
                                     .cornerRadius(0)
+                                    .accessibility(label: Text("4-star character banner."))
                             }
                         }
                         //Stretchy Header..
@@ -366,7 +368,8 @@ struct LevelUpCalculator: View {
                             .padding(.top, -50)
                             .padding(.bottom, -10)
                         }
-                        
+                        .accessibility(label: Text("\(character.profileImage)'s profile image."))
+                    
                         
                         //Character Details and Form
                         VStack(alignment: .leading, spacing: 10, content: {
@@ -400,6 +403,7 @@ struct LevelUpCalculator: View {
                                             .frame(width: 12.0, height: 12.0)
                                             .foregroundColor(gold)
                                     }
+                                    .accessibility(label: Text("\(character.name) is a 5-star character."))
                                 } else {
                                     HStack(spacing:1.0){
                                         Image(systemName: "star.fill")
@@ -419,6 +423,7 @@ struct LevelUpCalculator: View {
                                             .frame(width: 12.0, height: 12.0)
                                             .foregroundColor(purple)
                                     }
+                                    .accessibility(label: Text("\(character.name) is a 4-star character."))
                                 }
                                 
                                 Text(character.description)
@@ -437,21 +442,29 @@ struct LevelUpCalculator: View {
                                         Text("Current Level")
                                             .foregroundColor(.gray)
                                             .frame(maxWidth: .infinity, alignment: .leading)
-                                        TextField("Set level", value: $currentlevel, format:.number)
-                                            .keyboardType(.numberPad)
-                                        Rectangle()
-                                            .frame(height: 1.0, alignment: .bottom)
-                                            .foregroundColor(Color.gray)
+                                        Group{
+                                            TextField("Set level", value: $currentlevel, format:.number)
+                                                .keyboardType(.numberPad)
+                                            
+                                            Rectangle()
+                                                .frame(height: 1.0, alignment: .bottom)
+                                                .foregroundColor(Color.gray)
+                                        }.accessibility(label: Text("Select the current character level."))
+                                        
                                     }
                                     VStack{
                                         Text("Desired Level")
                                             .foregroundColor(.gray)
                                             .frame(maxWidth: .infinity, alignment: .leading)
-                                        TextField("Set level", value: $desiredlevel, format: .number)
-                                            .keyboardType(.numberPad)
-                                        Rectangle()
-                                            .frame(height: 1.0, alignment: .bottom)
-                                            .foregroundColor(Color.gray)
+                                        Group{
+                                            TextField("Set level", value: $desiredlevel, format: .number)
+                                                .keyboardType(.numberPad)
+                                            Rectangle()
+                                                .frame(height: 1.0, alignment: .bottom)
+                                                .foregroundColor(Color.gray)
+                                        }
+                                        .accessibility(label: Text("Select the desired character level."))
+                                        
                                         
                                     }
                                     
@@ -478,18 +491,19 @@ struct LevelUpCalculator: View {
                                                 Text("Priority:")
                                                     .font(.system(size: 14))
                                                 ForEach((1...character.attack.priority), id: \.self) { priority in
-                                                        Image(systemName: "star.fill")
-                                                            .resizable()
-                                                            .frame(width: 12.0, height: 12.0)
-                                                            }
+                                                    Image(systemName: "star.fill")
+                                                        .resizable()
+                                                        .frame(width: 12.0, height: 12.0)
+                                                }
                                                 if(character.attack.priority < 5){
                                                     ForEach((1...(5-character.attack.priority)), id: \.self) { priority in
                                                         Image(systemName: "star")
                                                             .resizable()
                                                             .frame(width: 12.0, height: 12.0)
-                                                                }
+                                                    }
                                                 }
                                             }
+                                            .accessibility(label: Text("The attack talent has \(character.attack.priority)-star priority."))
                                         }
                                         Spacer()
                                         
@@ -505,21 +519,29 @@ struct LevelUpCalculator: View {
                                             Text("Current Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", value: $currentnatalentlevel, format: .number)
-                                                .keyboardType(.numberPad)
-                                            Rectangle()
-                                                .frame(height: 1.0, alignment: .bottom)
-                                                .foregroundColor(Color.gray)
+                                            Group{
+                                                TextField("Set level", value: $currentnatalentlevel, format: .number)
+                                                    .keyboardType(.numberPad)
+                                                Rectangle()
+                                                    .frame(height: 1.0, alignment: .bottom)
+                                                    .foregroundColor(Color.gray)
+                                            }
+                                            .accessibility(label: Text("Select the current normal attack talent level."))
+                                            
                                         }
                                         VStack{
                                             Text("Desired Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", value: $desirednatalentlevel, format: .number)
-                                                .keyboardType(.numberPad)
-                                            Rectangle()
-                                                .frame(height: 1.0, alignment: .bottom)
-                                                .foregroundColor(Color.gray)
+                                            Group{
+                                                TextField("Set level", value: $desirednatalentlevel, format: .number)
+                                                    .keyboardType(.numberPad)
+                                                Rectangle()
+                                                    .frame(height: 1.0, alignment: .bottom)
+                                                    .foregroundColor(Color.gray)
+                                            }
+                                            .accessibility(label: Text("Select the desired normal attack talent level."))
+                                            
                                             
                                         }
                                     }
@@ -537,18 +559,19 @@ struct LevelUpCalculator: View {
                                                 Text("Priority:")
                                                     .font(.system(size: 14))
                                                 ForEach((1...character.elementalSkill.priority), id: \.self) { priority in
-                                                        Image(systemName: "star.fill")
-                                                            .resizable()
-                                                            .frame(width: 12.0, height: 12.0)
-                                                            }
+                                                    Image(systemName: "star.fill")
+                                                        .resizable()
+                                                        .frame(width: 12.0, height: 12.0)
+                                                }
                                                 if(character.elementalSkill.priority < 5){
                                                     ForEach((1...(5-character.elementalSkill.priority)), id: \.self) { priority in
                                                         Image(systemName: "star")
                                                             .resizable()
                                                             .frame(width: 12.0, height: 12.0)
-                                                                }
+                                                    }
                                                 }
                                             }
+                                            .accessibility(label: Text("The elemental skill talent has \(character.elementalSkill.priority)-star priority."))
                                         }
                                         Spacer()
                                         
@@ -564,21 +587,29 @@ struct LevelUpCalculator: View {
                                             Text("Current Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set value", value: $currentestalentlevel,format: .number)
-                                                .keyboardType(.numberPad)
-                                            Rectangle()
-                                                .frame(height: 1.0, alignment: .bottom)
-                                                .foregroundColor(Color.gray)
+                                            Group{
+                                                TextField("Set value", value: $currentestalentlevel,format: .number)
+                                                    .keyboardType(.numberPad)
+                                                Rectangle()
+                                                    .frame(height: 1.0, alignment: .bottom)
+                                                    .foregroundColor(Color.gray)
+                                                
+                                            }
+                                            .accessibility(label: Text("Select the current elemental skill talent level."))
+                                            
                                         }
                                         VStack{
                                             Text("Desired Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set value", value: $desiredestalentlevel, format: .number)
-                                                .keyboardType(.numberPad)
-                                            Rectangle()
-                                                .frame(height: 1.0, alignment: .bottom)
-                                                .foregroundColor(Color.gray)
+                                            Group{
+                                                TextField("Set value", value: $desiredestalentlevel, format: .number)
+                                                    .keyboardType(.numberPad)
+                                                Rectangle()
+                                                    .frame(height: 1.0, alignment: .bottom)
+                                                    .foregroundColor(Color.gray)
+                                            }
+                                            .accessibility(label: Text("Select the desired elemental skill talent level."))
                                             
                                         }
                                     }
@@ -597,18 +628,19 @@ struct LevelUpCalculator: View {
                                                     .font(.system(size: 14))
                                                 
                                                 ForEach((1...character.burst.priority), id: \.self) { priority in
-                                                        Image(systemName: "star.fill")
-                                                            .resizable()
-                                                            .frame(width: 12.0, height: 12.0)
-                                                            }
+                                                    Image(systemName: "star.fill")
+                                                        .resizable()
+                                                        .frame(width: 12.0, height: 12.0)
+                                                }
                                                 if(character.burst.priority < 5){
                                                     ForEach((1...(5-character.burst.priority)), id: \.self) { priority in
                                                         Image(systemName: "star")
                                                             .resizable()
                                                             .frame(width: 12.0, height: 12.0)
-                                                                }
+                                                    }
                                                 }
                                             }
+                                            .accessibility(label: Text("The burst talent has \(character.burst.priority)-star priority."))
                                         }
                                         Spacer()
                                         
@@ -624,21 +656,27 @@ struct LevelUpCalculator: View {
                                             Text("Current Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", value: $currentbursttalentlevel, format: .number)
-                                                .keyboardType(.numberPad)
-                                            Rectangle()
-                                                .frame(height: 1.0, alignment: .bottom)
-                                                .foregroundColor(Color.gray)
+                                            Group{
+                                                TextField("Set level", value: $currentbursttalentlevel, format: .number)
+                                                    .keyboardType(.numberPad)
+                                                Rectangle()
+                                                    .frame(height: 1.0, alignment: .bottom)
+                                                    .foregroundColor(Color.gray)
+                                            }
+                                            .accessibility(label: Text("Select the current burst talent level."))
                                         }
                                         VStack{
                                             Text("Desired Level")
                                                 .foregroundColor(.gray)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                            TextField("Set level", value: $desiredbursttalentlevel, format: .number)
-                                                .keyboardType(.numberPad)
-                                            Rectangle()
-                                                .frame(height: 1.0, alignment: .bottom)
-                                                .foregroundColor(Color.gray)
+                                            Group{
+                                                TextField("Set level", value: $desiredbursttalentlevel, format: .number)
+                                                    .keyboardType(.numberPad)
+                                                Rectangle()
+                                                    .frame(height: 1.0, alignment: .bottom)
+                                                    .foregroundColor(Color.gray)
+                                            }
+                                            .accessibility(label: Text("Select the desired burst talent level."))
                                             
                                         }
                                     }
@@ -653,6 +691,7 @@ struct LevelUpCalculator: View {
                                             .foregroundColor(.white)
                                             .clipShape(RoundedRectangle(cornerRadius: 4))
                                     }
+                                    .accessibility(label: Text("Calculate resources."))
                                     
                                 }
                             }
@@ -673,7 +712,7 @@ struct LevelUpCalculator: View {
             }
             
         })
-            .ignoresSafeArea(.all, edges: .top)
+        .ignoresSafeArea(.all, edges: .top)
         
         
         
@@ -871,9 +910,9 @@ struct LevelUpCalculator: View {
             talent_weekly_boss_drops: totaltalentbossdrops
             
         )
-
         
- 
+        
+        
         
     }
     

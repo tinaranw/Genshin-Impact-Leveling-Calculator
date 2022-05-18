@@ -21,6 +21,7 @@ struct CharacterList: View {
                                         LevelUpCalculator(character: characters[(i + j + (i*2))])){
                             CharactersCollectionViewCell(row: i, column: j)
                         }
+                        .accessibility(label: Text("\(characters[(i + j + (i*2))].name)"))
                     }
                 }
             }
