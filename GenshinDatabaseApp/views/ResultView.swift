@@ -134,6 +134,7 @@ struct ResultView: View {
                                             .frame(width: 12.0, height: 12.0)
                                             .foregroundColor(gold)
                                     }
+                                    .accessibility(label: Text("\(character.name) is a 5-star character."))
                                 } else {
                                     HStack(spacing:1.0){
                                         Image(systemName: "star.fill")
@@ -153,6 +154,7 @@ struct ResultView: View {
                                             .frame(width: 12.0, height: 12.0)
                                             .foregroundColor(purple)
                                     }
+                                    .accessibility(label: Text("\(character.name) is a 4-star character."))
                                 }
                                 Text(character.description)
                                 
@@ -181,6 +183,7 @@ struct ResultView: View {
                                                 }
                                                 
                                             }
+                                            .accessibility(label: Text("\(result.chara_heros_wit) Hero's Wit needed."))
                                             Divider()
                                         }
                                         
@@ -199,6 +202,7 @@ struct ResultView: View {
                                                 }
                                                 
                                             }
+                                            .accessibility(label: Text("\(result.chara_adv_exp) Adventurer's Experience needed."))
                                             Divider()
                                         }
                                         
@@ -217,6 +221,7 @@ struct ResultView: View {
                                                 }
                                                 
                                             }
+                                            .accessibility(label: Text("\(result.chara_wand_adv) Wanderer's Advice needed."))
                                             Divider()
                                         }
                                         
@@ -233,7 +238,7 @@ struct ResultView: View {
                                                     Text("x")
                                                     Text(String(result.chara_mora))
                                                 }
-                                                
+                                                .accessibility(label: Text("\(result.chara_mora) Mora needed."))
                                             }
                                             Divider()
                                         }
@@ -251,6 +256,7 @@ struct ResultView: View {
                                                     Text("x")
                                                     Text(String(result.chara_normal_boss_drops))
                                                 }
+                                                .accessibility(label: Text("\(result.chara_normal_boss_drops) \((character.normalBossDrops)) needed."))
                                                 
                                             }
                                             Divider()
@@ -271,6 +277,7 @@ struct ResultView: View {
                                                 }
                                                 
                                             }
+                                            .accessibility(label: Text("\(result.chara_local_mat) \((character.ascensionMats)) needed."))
                                         }
                                         
                                     }
@@ -304,6 +311,7 @@ struct ResultView: View {
                                                     Text(String(result.talent_mora))
                                                 }
                                             }
+                                            .accessibility(label: Text("\(result.talent_mora) Mora needed."))
                                             Divider()
                                         }
                                         Group{
@@ -320,6 +328,7 @@ struct ResultView: View {
                                                     Text(String(result.talent_common_books))
                                                 }
                                             }
+                                            .accessibility(label: Text("\(result.talent_common_books) \((character.talentBooks)) needed."))
                                             Divider()
                                         }
                                         Group{
@@ -336,6 +345,7 @@ struct ResultView: View {
                                                     Text(String(result.talent_crown))
                                                 }
                                             }
+                                            .accessibility(label: Text("\(result.talent_crown) Crown needed."))
                                             Divider()
                                         }
                                         Group{
@@ -352,6 +362,7 @@ struct ResultView: View {
                                                     Text(String(result.talent_weekly_boss_drops))
                                                 }
                                             }
+                                            .accessibility(label: Text("\(result.talent_weekly_boss_drops) \((character.weeklyBossDrops)) needed."))
                                         }
                                         
                                     }

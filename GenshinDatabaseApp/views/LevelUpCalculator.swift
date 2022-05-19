@@ -9,27 +9,28 @@ import Foundation
 import SwiftUI
 
 struct LevelUpCalculator: View {
+    let character: Character
     
-    let character:Character
+    @State private var errorMsg = ""
     
     //    @ObservedObject var result:Result
     
-    //Data
-    //Character Info
+    // Data
+    // Character Info
     
-    //Character Level
+    // Character Level
     @State private var currentlevel = 1
     @State private var desiredlevel = 1
     
-    //Character Mora Cost
+    // Character Mora Cost
     @State private var totallevelupcost = 0
     
-    //Character EXP Books
+    // Character EXP Books
     @State private var heros_wit = 0
     @State private var adv_exp = 0
     @State private var wand_adv = 0
     
-    //Character Normal Boss Materials
+    // Character Normal Boss Materials
     @State private var normalbossmaterial = 0
     
     var normalbossdrops = [
@@ -42,7 +43,7 @@ struct LevelUpCalculator: View {
         20
     ]
     
-    //Character Local Materials
+    // Character Local Materials
     @State private var localmaterial = 0
     
     var localspecialties = [
@@ -54,37 +55,37 @@ struct LevelUpCalculator: View {
         45,
         60
     ]
-    //Normal Attack Talent Level
+    // Normal Attack Talent Level
     @State private var currentnatalentlevel = 1
     @State private var desirednatalentlevel = 1
     
-    //Elemental Skill Talent Level
+    // Elemental Skill Talent Level
     @State private var currentestalentlevel = 1
     @State private var desiredestalentlevel = 1
     
-    //Burst Talent Level
+    // Burst Talent Level
     @State private var currentbursttalentlevel = 1
     @State private var desiredbursttalentlevel = 1
     
-    //Crown of Insight
+    // Crown of Insight
     @State private var na_crown = 0
     @State private var es_crown = 0
     @State private var burst_crown = 0
     @State private var totalcrown = 0
     
-    //Talent Boss Drops
+    // Talent Boss Drops
     @State private var na_talentbossdrops = 0
     @State private var es_talentbossdrops = 0
     @State private var burst_talentbossdrops = 0
     @State private var totaltalentbossdrops = 0
     
-    //Talent Cost
+    // Talent Cost
     @State private var na_talentcost = 0
     @State private var es_talentcost = 0
     @State private var burst_talentcost = 0
     @State private var totaltalentcost = 0
     
-    //Talent Common Books
+    // Talent Common Books
     @State private var na_talentbooks = 0
     @State private var es_talentbooks = 0
     @State private var burst_talentbooks = 0
@@ -104,7 +105,7 @@ struct LevelUpCalculator: View {
         0
     ]
     
-    //Talent Materials
+    // Talent Materials
     var talentMaterials = [
         0,
         6,
@@ -119,7 +120,7 @@ struct LevelUpCalculator: View {
         0
     ]
     
-    //Talent Books
+    // Talent Books
     var talentBooks = [
         0,
         3,
@@ -134,7 +135,7 @@ struct LevelUpCalculator: View {
         0
     ]
     
-    //Character Talent Cost
+    // Character Talent Cost
     var talentCost = [
         0,
         12500,
@@ -147,10 +148,9 @@ struct LevelUpCalculator: View {
         450000,
         700000,
         0
-        
     ]
     
-    //Character Ascension Cost
+    // Character Ascension Cost
     var ascensionCost = [
         0,
         20000,
@@ -161,7 +161,7 @@ struct LevelUpCalculator: View {
         120000
     ]
     
-    //Character EXP
+    // Character EXP
     var characterExp = [
         0,
         1000,
@@ -256,20 +256,20 @@ struct LevelUpCalculator: View {
         0
     ]
     
-    //View
+    // View
     @State var offset: CGFloat = 0
     
-    //Color
-    let lightgray = Color(0xeeeeee)
-    let darkgray = Color(0xb1b1b1)
+    // Color
+    let lightgray = Color(0xEEEEEE)
+    let darkgray = Color(0xB1B1B1)
     let gold = Color(0xFFBA4B)
     let purple = Color(0x9A6CDB)
     let accentBlue = Color(0xB7CADB)
     
-    //Navigation
+    // Navigation
     @State private var isActive = false
     
-    //save var for result
+    // save var for result
     @State public var calc_result = Result(
         chara_heros_wit: 0,
         chara_adv_exp: 0,
@@ -281,464 +281,449 @@ struct LevelUpCalculator: View {
         talent_common_books: 0,
         talent_crown: 0,
         talent_weekly_boss_drops: 0
-        
     )
     
+    // Warning
+    @State private var customAlert = false
+    
     var body: some View {
-        
-        
-        ScrollView(.vertical, showsIndicators: false, content: {
-            
-            VStack(spacing:15){
-                
-                //Header View
-                GeometryReader{proxy -> AnyView in
-                    
-                    //Sticky Header
-                    let minY = proxy.frame(in: .global).minY
-                    
-                    DispatchQueue.main.async {
-                        self.offset = minY
-                    }
-                    
-                    
-                    return AnyView(
-                        ZStack{
-                            if(character.rarity == "legendary") {
-                                Image("brown")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: getRect().width, height: minY > 0 ? 180 + minY : nil, alignment: .center)
-                                    .cornerRadius(0)
-                                    .accessibility(label: Text("5-star character banner."))
-                            } else {
-                                Image("blue")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: getRect().width, height: minY > 0 ? 180 + minY : nil, alignment: .center)
-                                    .cornerRadius(0)
-                                    .accessibility(label: Text("4-star character banner."))
-                            }
-                        }
-                        //Stretchy Header..
-                            .frame(height: minY > 0 ? 180 + minY : nil)
-                            .offset(y: minY > 0 ? -minY : -minY < 80 ? 0 : -minY - 80)
-                    )
-                }
-                .frame(height: 180)
-                .zIndex(1)
-                
-                //Profile Image
-                Group{
-                    VStack{
-                        ZStack{
-                            HStack{
-                                if(character.rarity == "legendary") {
-                                    Image("background_5star")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 100, height: 100)
-                                        .clipShape(Circle())
-                                        .offset(y: offset < 0 ? getOffset() - 20 : -20)
-                                        .scaleEffect(getScale())
-                                    Spacer()
-                                } else {
-                                    Image("background_4star")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 100, height: 100)
-                                        .clipShape(Circle())
-                                        .offset(y: offset < 0 ? getOffset() - 20 : -20)
-                                        .scaleEffect(getScale())
-                                    Spacer()
-                                }
-                            }
-                            .padding(.top, -50)
-                            .padding(.bottom, -10)
-                            HStack{
-                                Image(character.profileImage)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 100, height: 100)
-                                    .clipShape(Circle())
-                                    .offset(y: offset < 0 ? getOffset() - 20 : -20)
-                                    .scaleEffect(getScale())
-                                Spacer()
-                            }
-                            .padding(.top, -50)
-                            .padding(.bottom, -10)
-                        }
-                        .accessibility(label: Text("\(character.profileImage)'s profile image."))
-                    
+        ZStack {
+            ScrollView(.vertical, showsIndicators: false, content: {
+                VStack(spacing: 15) {
+                    // Header View
+                    GeometryReader { proxy->AnyView in
                         
-                        //Character Details and Form
-                        VStack(alignment: .leading, spacing: 10, content: {
-                            
-                            //Character Detail
-                            Group{
-                                Text(character.name)
-                                    .font(.custom("Georgia", size: 24, relativeTo: .headline))
-                                    .fontWeight(.bold)
-                                
-                                if(character.rarity == "legendary"){
-                                    HStack(spacing:1.0){
-                                        Image(systemName: "star.fill")
-                                            .resizable()
-                                            .frame(width: 12.0, height: 12.0)
-                                            .foregroundColor(gold)
-                                        Image(systemName: "star.fill")
-                                            .resizable()
-                                            .frame(width: 12.0, height: 12.0)
-                                            .foregroundColor(gold)
-                                        Image(systemName: "star.fill")
-                                            .resizable()
-                                            .frame(width: 12.0, height: 12.0)
-                                            .foregroundColor(gold)
-                                        Image(systemName: "star.fill")
-                                            .resizable()
-                                            .frame(width: 12.0, height: 12.0)
-                                            .foregroundColor(gold)
-                                        Image(systemName: "star.fill")
-                                            .resizable()
-                                            .frame(width: 12.0, height: 12.0)
-                                            .foregroundColor(gold)
-                                    }
-                                    .accessibility(label: Text("\(character.name) is a 5-star character."))
+                        // Sticky Header
+                        let minY = proxy.frame(in: .global).minY
+                        
+                        DispatchQueue.main.async {
+                            self.offset = minY
+                        }
+                        
+                        return AnyView(
+                            ZStack {
+                                if character.rarity == "legendary" {
+                                    Image("brown")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: getRect().width, height: minY > 0 ? 180 + minY : nil, alignment: .center)
+                                        .cornerRadius(0)
+                                        .accessibility(label: Text("5-star character banner."))
                                 } else {
-                                    HStack(spacing:1.0){
-                                        Image(systemName: "star.fill")
-                                            .resizable()
-                                            .frame(width: 12.0, height: 12.0)
-                                            .foregroundColor(purple)
-                                        Image(systemName: "star.fill")
-                                            .resizable()
-                                            .frame(width: 12.0, height: 12.0)
-                                            .foregroundColor(purple)
-                                        Image(systemName: "star.fill")
-                                            .resizable()
-                                            .frame(width: 12.0, height: 12.0)
-                                            .foregroundColor(purple)
-                                        Image(systemName: "star.fill")
-                                            .resizable()
-                                            .frame(width: 12.0, height: 12.0)
-                                            .foregroundColor(purple)
-                                    }
-                                    .accessibility(label: Text("\(character.name) is a 4-star character."))
-                                }
-                                
-                                Text(character.description)
-                                
-                                Spacer()
-                                    .frame(height: 20)
-                            }
-                            
-                            
-                            //Character Level
-                            Group{
-                                Text("Character Level")
-                                
-                                HStack{
-                                    VStack{
-                                        Text("Current Level")
-                                            .foregroundColor(.gray)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        Group{
-                                            TextField("Set level", value: $currentlevel, format:.number)
-                                                .keyboardType(.numberPad)
-                                            
-                                            Rectangle()
-                                                .frame(height: 1.0, alignment: .bottom)
-                                                .foregroundColor(Color.gray)
-                                        }.accessibility(label: Text("Select the current character level."))
-                                        
-                                    }
-                                    VStack{
-                                        Text("Desired Level")
-                                            .foregroundColor(.gray)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        Group{
-                                            TextField("Set level", value: $desiredlevel, format: .number)
-                                                .keyboardType(.numberPad)
-                                            Rectangle()
-                                                .frame(height: 1.0, alignment: .bottom)
-                                                .foregroundColor(Color.gray)
-                                        }
-                                        .accessibility(label: Text("Select the desired character level."))
-                                        
-                                        
-                                    }
-                                    
+                                    Image("blue")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: getRect().width, height: minY > 0 ? 180 + minY : nil, alignment: .center)
+                                        .cornerRadius(0)
+                                        .accessibility(label: Text("4-star character banner."))
                                 }
                             }
-                            
-                            Spacer()
-                                .frame(height: 10)
-                            
-                            //Character Talent
-                            Group {
-                                Group{
-                                    Text("Talent Level")
-                                    Text("If it has a different color, subtract it by 3")
-                                        .foregroundColor(purple)
-                                }
-                                
-                                Group{
-                                    HStack{
-                                        VStack(alignment: .leading){
-                                            Text(character.attack.name)
-                                                .font(.system(size: 16))
-                                            HStack{
-                                                Text("Priority:")
-                                                    .font(.system(size: 14))
-                                                ForEach((1...character.attack.priority), id: \.self) { priority in
-                                                    Image(systemName: "star.fill")
-                                                        .resizable()
-                                                        .frame(width: 12.0, height: 12.0)
-                                                }
-                                                if(character.attack.priority < 5){
-                                                    ForEach((1...(5-character.attack.priority)), id: \.self) { priority in
-                                                        Image(systemName: "star")
-                                                            .resizable()
-                                                            .frame(width: 12.0, height: 12.0)
-                                                    }
-                                                }
-                                            }
-                                            .accessibility(label: Text("The attack talent has \(character.attack.priority)-star priority."))
-                                        }
+                            // Stretchy Header..
+                            .frame(height: minY > 0 ? 180 + minY : nil)
+                            .offset(y: minY > 0 ? -minY : -minY < 80 ? 0 : -minY-80)
+                        )
+                    }
+                    .frame(height: 180)
+                    .zIndex(1)
+                    
+                    // Profile Image
+                    Group {
+                        VStack {
+                            ZStack {
+                                HStack {
+                                    if character.rarity == "legendary" {
+                                        Image("background_5star")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 100, height: 100)
+                                            .clipShape(Circle())
+                                            .offset(y: offset < 0 ? getOffset()-20 : -20)
+                                            .scaleEffect(getScale())
                                         Spacer()
-                                        
-                                    }
-                                    .padding(.horizontal)
-                                    .frame(width: .infinity, height: 100)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .shadow(color: darkgray, radius: 3, x: 0, y: 1)
-                                    
-                                    HStack{
-                                        VStack{
-                                            Text("Current Level")
-                                                .foregroundColor(.gray)
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                            Group{
-                                                TextField("Set level", value: $currentnatalentlevel, format: .number)
-                                                    .keyboardType(.numberPad)
-                                                Rectangle()
-                                                    .frame(height: 1.0, alignment: .bottom)
-                                                    .foregroundColor(Color.gray)
-                                            }
-                                            .accessibility(label: Text("Select the current normal attack talent level."))
-                                            
-                                        }
-                                        VStack{
-                                            Text("Desired Level")
-                                                .foregroundColor(.gray)
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                            Group{
-                                                TextField("Set level", value: $desirednatalentlevel, format: .number)
-                                                    .keyboardType(.numberPad)
-                                                Rectangle()
-                                                    .frame(height: 1.0, alignment: .bottom)
-                                                    .foregroundColor(Color.gray)
-                                            }
-                                            .accessibility(label: Text("Select the desired normal attack talent level."))
-                                            
-                                            
-                                        }
-                                    }
-                                }
-                                
-                                Spacer()
-                                    .frame(height: 10)
-                                
-                                Group{
-                                    HStack{
-                                        VStack(alignment: .leading){
-                                            Text(character.elementalSkill.name)
-                                                .font(.system(size: 16))
-                                            HStack{
-                                                Text("Priority:")
-                                                    .font(.system(size: 14))
-                                                ForEach((1...character.elementalSkill.priority), id: \.self) { priority in
-                                                    Image(systemName: "star.fill")
-                                                        .resizable()
-                                                        .frame(width: 12.0, height: 12.0)
-                                                }
-                                                if(character.elementalSkill.priority < 5){
-                                                    ForEach((1...(5-character.elementalSkill.priority)), id: \.self) { priority in
-                                                        Image(systemName: "star")
-                                                            .resizable()
-                                                            .frame(width: 12.0, height: 12.0)
-                                                    }
-                                                }
-                                            }
-                                            .accessibility(label: Text("The elemental skill talent has \(character.elementalSkill.priority)-star priority."))
-                                        }
+                                    } else {
+                                        Image("background_4star")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 100, height: 100)
+                                            .clipShape(Circle())
+                                            .offset(y: offset < 0 ? getOffset()-20 : -20)
+                                            .scaleEffect(getScale())
                                         Spacer()
-                                        
-                                    }
-                                    .padding(.horizontal)
-                                    .frame(width: .infinity, height: 100)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .shadow(color: darkgray, radius: 3, x: 0, y: 1)
-                                    
-                                    HStack{
-                                        VStack{
-                                            Text("Current Level")
-                                                .foregroundColor(.gray)
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                            Group{
-                                                TextField("Set value", value: $currentestalentlevel,format: .number)
-                                                    .keyboardType(.numberPad)
-                                                Rectangle()
-                                                    .frame(height: 1.0, alignment: .bottom)
-                                                    .foregroundColor(Color.gray)
-                                                
-                                            }
-                                            .accessibility(label: Text("Select the current elemental skill talent level."))
-                                            
-                                        }
-                                        VStack{
-                                            Text("Desired Level")
-                                                .foregroundColor(.gray)
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                            Group{
-                                                TextField("Set value", value: $desiredestalentlevel, format: .number)
-                                                    .keyboardType(.numberPad)
-                                                Rectangle()
-                                                    .frame(height: 1.0, alignment: .bottom)
-                                                    .foregroundColor(Color.gray)
-                                            }
-                                            .accessibility(label: Text("Select the desired elemental skill talent level."))
-                                            
-                                        }
                                     }
                                 }
-                                
-                                Spacer()
-                                    .frame(height: 10)
-                                
-                                Group{
-                                    HStack{
-                                        VStack(alignment: .leading){
-                                            Text(character.burst.name)
-                                                .font(.system(size: 16))
-                                            HStack{
-                                                Text("Priority:")
-                                                    .font(.system(size: 14))
-                                                
-                                                ForEach((1...character.burst.priority), id: \.self) { priority in
-                                                    Image(systemName: "star.fill")
-                                                        .resizable()
-                                                        .frame(width: 12.0, height: 12.0)
-                                                }
-                                                if(character.burst.priority < 5){
-                                                    ForEach((1...(5-character.burst.priority)), id: \.self) { priority in
-                                                        Image(systemName: "star")
-                                                            .resizable()
-                                                            .frame(width: 12.0, height: 12.0)
-                                                    }
-                                                }
-                                            }
-                                            .accessibility(label: Text("The burst talent has \(character.burst.priority)-star priority."))
-                                        }
-                                        Spacer()
-                                        
-                                    }
-                                    .padding(.horizontal)
-                                    .frame(width: .infinity, height: 100)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .shadow(color: darkgray, radius: 3, x: 0, y: 1)
-                                    
-                                    HStack{
-                                        VStack{
-                                            Text("Current Level")
-                                                .foregroundColor(.gray)
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                            Group{
-                                                TextField("Set level", value: $currentbursttalentlevel, format: .number)
-                                                    .keyboardType(.numberPad)
-                                                Rectangle()
-                                                    .frame(height: 1.0, alignment: .bottom)
-                                                    .foregroundColor(Color.gray)
-                                            }
-                                            .accessibility(label: Text("Select the current burst talent level."))
-                                        }
-                                        VStack{
-                                            Text("Desired Level")
-                                                .foregroundColor(.gray)
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                            Group{
-                                                TextField("Set level", value: $desiredbursttalentlevel, format: .number)
-                                                    .keyboardType(.numberPad)
-                                                Rectangle()
-                                                    .frame(height: 1.0, alignment: .bottom)
-                                                    .foregroundColor(Color.gray)
-                                            }
-                                            .accessibility(label: Text("Select the desired burst talent level."))
-                                            
-                                        }
-                                    }
-                                }
-                                
-                                Group{
+                                .padding(.top, -50)
+                                .padding(.bottom, -10)
+                                HStack {
+                                    Image(character.profileImage)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 100, height: 100)
+                                        .clipShape(Circle())
+                                        .offset(y: offset < 0 ? getOffset()-20 : -20)
+                                        .scaleEffect(getScale())
                                     Spacer()
-                                        .frame(height: 30)
-                                    NavigationLink(destination: ResultView(character: character, result: calc_result), isActive: $isActive){
-                                        Button("Calculate", action: calculateResources).frame(minWidth: 100, maxWidth: .infinity, minHeight: 44)
+                                }
+                                .padding(.top, -50)
+                                .padding(.bottom, -10)
+                            }
+                            .accessibility(label: Text("\(character.profileImage)'s profile image."))
+                        
+                            // Character Details and Form
+                            VStack(alignment: .leading, spacing: 10, content: {
+                                // Character Detail
+                                Group {
+                                    Text(character.name)
+                                        .font(.custom("Georgia", size: 24, relativeTo: .headline))
+                                        .fontWeight(.bold)
+                                    
+                                    if character.rarity == "legendary" {
+                                        HStack(spacing: 1.0) {
+                                            Image(systemName: "star.fill")
+                                                .resizable()
+                                                .frame(width: 12.0, height: 12.0)
+                                                .foregroundColor(gold)
+                                            Image(systemName: "star.fill")
+                                                .resizable()
+                                                .frame(width: 12.0, height: 12.0)
+                                                .foregroundColor(gold)
+                                            Image(systemName: "star.fill")
+                                                .resizable()
+                                                .frame(width: 12.0, height: 12.0)
+                                                .foregroundColor(gold)
+                                            Image(systemName: "star.fill")
+                                                .resizable()
+                                                .frame(width: 12.0, height: 12.0)
+                                                .foregroundColor(gold)
+                                            Image(systemName: "star.fill")
+                                                .resizable()
+                                                .frame(width: 12.0, height: 12.0)
+                                                .foregroundColor(gold)
+                                        }
+                                        .accessibility(label: Text("\(character.name) is a 5-star character."))
+                                    } else {
+                                        HStack(spacing: 1.0) {
+                                            Image(systemName: "star.fill")
+                                                .resizable()
+                                                .frame(width: 12.0, height: 12.0)
+                                                .foregroundColor(purple)
+                                            Image(systemName: "star.fill")
+                                                .resizable()
+                                                .frame(width: 12.0, height: 12.0)
+                                                .foregroundColor(purple)
+                                            Image(systemName: "star.fill")
+                                                .resizable()
+                                                .frame(width: 12.0, height: 12.0)
+                                                .foregroundColor(purple)
+                                            Image(systemName: "star.fill")
+                                                .resizable()
+                                                .frame(width: 12.0, height: 12.0)
+                                                .foregroundColor(purple)
+                                        }
+                                        .accessibility(label: Text("\(character.name) is a 4-star character."))
+                                    }
+                                    
+                                    Text(character.description)
+                                    
+                                    Spacer()
+                                        .frame(height: 20)
+                                }
+                                
+                                // Character Level
+                                Group {
+                                    Text("Character Level")
+                                    
+                                    HStack {
+                                        VStack {
+                                            Text("Current Level")
+                                                .foregroundColor(.gray)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            Group {
+                                                TextField("Set level", value: $currentlevel, format: .number)
+                                                    .keyboardType(.numberPad)
+                                                
+                                                Rectangle()
+                                                    .frame(height: 1.0, alignment: .bottom)
+                                                    .foregroundColor(Color.gray)
+                                            }.accessibility(label: Text("Select the current character level."))
+                                        }
+                                        VStack {
+                                            Text("Desired Level")
+                                                .foregroundColor(.gray)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            Group {
+                                                TextField("Set level", value: $desiredlevel, format: .number)
+                                                    .keyboardType(.numberPad)
+                                                Rectangle()
+                                                    .frame(height: 1.0, alignment: .bottom)
+                                                    .foregroundColor(Color.gray)
+                                            }
+                                            .accessibility(label: Text("Select the desired character level."))
+                                        }
+                                    }
+                                }
+                                
+                                Spacer()
+                                    .frame(height: 10)
+                                
+                                // Character Talent
+                                Group {
+                                    Group {
+                                        Text("Talent Level")
+                                        Text("If it has a different color, subtract it by 3")
+                                            .foregroundColor(purple)
+                                    }
+                                    
+                                    Group {
+                                        HStack {
+                                            VStack(alignment: .leading) {
+                                                Text(character.attack.name)
+                                                    .font(.system(size: 16))
+                                                HStack {
+                                                    Text("Priority:")
+                                                        .font(.system(size: 14))
+                                                    ForEach(1...character.attack.priority, id: \.self) { _ in
+                                                        Image(systemName: "star.fill")
+                                                            .resizable()
+                                                            .frame(width: 12.0, height: 12.0)
+                                                    }
+                                                    if character.attack.priority < 5 {
+                                                        ForEach(1...(5-character.attack.priority), id: \.self) { _ in
+                                                            Image(systemName: "star")
+                                                                .resizable()
+                                                                .frame(width: 12.0, height: 12.0)
+                                                        }
+                                                    }
+                                                }
+                                                .accessibility(label: Text("The attack talent has \(character.attack.priority)-star priority."))
+                                            }
+                                            Spacer()
+                                        }
+                                        .padding(.horizontal)
+                                        .frame(width: .infinity, height: 100)
+                                        .background(.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                                        
+                                        HStack {
+                                            VStack {
+                                                Text("Current Level")
+                                                    .foregroundColor(.gray)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                Group {
+                                                    TextField("Set level", value: $currentnatalentlevel, format: .number)
+                                                        .keyboardType(.numberPad)
+                                                    Rectangle()
+                                                        .frame(height: 1.0, alignment: .bottom)
+                                                        .foregroundColor(Color.gray)
+                                                }
+                                                .accessibility(label: Text("Select the current normal attack talent level."))
+                                            }
+                                            VStack {
+                                                Text("Desired Level")
+                                                    .foregroundColor(.gray)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                Group {
+                                                    TextField("Set level", value: $desirednatalentlevel, format: .number)
+                                                        .keyboardType(.numberPad)
+                                                    Rectangle()
+                                                        .frame(height: 1.0, alignment: .bottom)
+                                                        .foregroundColor(Color.gray)
+                                                }
+                                                .accessibility(label: Text("Select the desired normal attack talent level."))
+                                            }
+                                        }
+                                    }
+                                    
+                                    Spacer()
+                                        .frame(height: 10)
+                                    
+                                    Group {
+                                        HStack {
+                                            VStack(alignment: .leading) {
+                                                Text(character.elementalSkill.name)
+                                                    .font(.system(size: 16))
+                                                HStack {
+                                                    Text("Priority:")
+                                                        .font(.system(size: 14))
+                                                    ForEach(1...character.elementalSkill.priority, id: \.self) { _ in
+                                                        Image(systemName: "star.fill")
+                                                            .resizable()
+                                                            .frame(width: 12.0, height: 12.0)
+                                                    }
+                                                    if character.elementalSkill.priority < 5 {
+                                                        ForEach(1...(5-character.elementalSkill.priority), id: \.self) { _ in
+                                                            Image(systemName: "star")
+                                                                .resizable()
+                                                                .frame(width: 12.0, height: 12.0)
+                                                        }
+                                                    }
+                                                }
+                                                .accessibility(label: Text("The elemental skill talent has \(character.elementalSkill.priority)-star priority."))
+                                            }
+                                            Spacer()
+                                        }
+                                        .padding(.horizontal)
+                                        .frame(width: .infinity, height: 100)
+                                        .background(.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                                        
+                                        HStack {
+                                            VStack {
+                                                Text("Current Level")
+                                                    .foregroundColor(.gray)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                Group {
+                                                    TextField("Set value", value: $currentestalentlevel, format: .number)
+                                                        .keyboardType(.numberPad)
+                                                    Rectangle()
+                                                        .frame(height: 1.0, alignment: .bottom)
+                                                        .foregroundColor(Color.gray)
+                                                }
+                                                .accessibility(label: Text("Select the current elemental skill talent level."))
+                                            }
+                                            VStack {
+                                                Text("Desired Level")
+                                                    .foregroundColor(.gray)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                Group {
+                                                    TextField("Set value", value: $desiredestalentlevel, format: .number)
+                                                        .keyboardType(.numberPad)
+                                                    Rectangle()
+                                                        .frame(height: 1.0, alignment: .bottom)
+                                                        .foregroundColor(Color.gray)
+                                                }
+                                                .accessibility(label: Text("Select the desired elemental skill talent level."))
+                                            }
+                                        }
+                                    }
+                                    
+                                    Spacer()
+                                        .frame(height: 10)
+                                    
+                                    Group {
+                                        HStack {
+                                            VStack(alignment: .leading) {
+                                                Text(character.burst.name)
+                                                    .font(.system(size: 16))
+                                                HStack {
+                                                    Text("Priority:")
+                                                        .font(.system(size: 14))
+                                                    
+                                                    ForEach(1...character.burst.priority, id: \.self) { _ in
+                                                        Image(systemName: "star.fill")
+                                                            .resizable()
+                                                            .frame(width: 12.0, height: 12.0)
+                                                    }
+                                                    if character.burst.priority < 5 {
+                                                        ForEach(1...(5-character.burst.priority), id: \.self) { _ in
+                                                            Image(systemName: "star")
+                                                                .resizable()
+                                                                .frame(width: 12.0, height: 12.0)
+                                                        }
+                                                    }
+                                                }
+                                                .accessibility(label: Text("The burst talent has \(character.burst.priority)-star priority."))
+                                            }
+                                            Spacer()
+                                        }
+                                        .padding(.horizontal)
+                                        .frame(width: .infinity, height: 100)
+                                        .background(.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                                        
+                                        HStack {
+                                            VStack {
+                                                Text("Current Level")
+                                                    .foregroundColor(.gray)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                Group {
+                                                    TextField("Set level", value: $currentbursttalentlevel, format: .number)
+                                                        .keyboardType(.numberPad)
+                                                    Rectangle()
+                                                        .frame(height: 1.0, alignment: .bottom)
+                                                        .foregroundColor(Color.gray)
+                                                }
+                                                .accessibility(label: Text("Select the current burst talent level."))
+                                            }
+                                            VStack {
+                                                Text("Desired Level")
+                                                    .foregroundColor(.gray)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                Group {
+                                                    TextField("Set level", value: $desiredbursttalentlevel, format: .number)
+                                                        .keyboardType(.numberPad)
+                                                    Rectangle()
+                                                        .frame(height: 1.0, alignment: .bottom)
+                                                        .foregroundColor(Color.gray)
+                                                }
+                                                .accessibility(label: Text("Select the desired burst talent level."))
+                                            }
+                                        }
+                                    }
+                                    
+                                    Group {
+                                        Spacer()
+                                            .frame(height: 30)
+                                        NavigationLink(destination: ResultView(character: character, result: calc_result), isActive: $isActive) {
+                                            EmptyView()
+                                        }
+                                        Button("Calculate", action: checkCalculate).frame(minWidth: 100, maxWidth: .infinity, minHeight: 44)
                                             .background(accentBlue)
                                             .foregroundColor(.white)
                                             .clipShape(RoundedRectangle(cornerRadius: 4))
+                                            .accessibility(label: Text("Calculate resources."))
                                     }
-                                    .accessibility(label: Text("Calculate resources."))
-                                    
                                 }
-                            }
+                                
+                            })
                             
-                            
-                        })
-                        
-                        //
-                        
-                        
-                        
+                            //
+                        }
+                        .padding(20)
+                        // Moving the view back..
+                        .zIndex(-offset > 80 ? 0 : 1)
                     }
-                    .padding(20)
-                    //Moving the view back..
-                    .zIndex(-offset > 80 ? 0 : 1)
                 }
                 
-            }
+            })
+            .ignoresSafeArea(.all, edges: .top)
             
-        })
-        .ignoresSafeArea(.all, edges: .top)
-        
-        
-        
-        
+            if customAlert {
+                CustomAlertView(show: $customAlert)
+            }
+        }
     }
     
-    
-    //FUNCTIONS
-    //Profile Shrinking Effect
-    func getOffset()->CGFloat{
-        let progress = (-offset / 80) * 20
+    // FUNCTIONS
+    // Profile Shrinking Effect
+    func getOffset()->CGFloat {
+        let progress = (-offset/80) * 20
         return progress <= 20 ? progress : 20
     }
     
-    func getScale()->CGFloat{
+    func getScale()->CGFloat {
         let progress = -offset/80
-        let scale = 1.8 - (progress < 1.0 ? progress : 1)
+        let scale = 1.8-(progress < 1.0 ? progress : 1)
         return scale < 1 ? scale : 1
     }
     
-    func calculateResources(){
-        
-        //Calculate EXP
-        let startLevel = currentlevel, endLevel = desiredlevel-1;
+    func checkCalculate() {
+        if currentlevel > desiredlevel || currentnatalentlevel > desirednatalentlevel || currentestalentlevel > desiredestalentlevel || currentbursttalentlevel > desiredbursttalentlevel {
+            withAnimation {
+                customAlert.toggle()
+            }
+        } else {
+            calculateResources()
+        }
+    }
+    
+    func calculateResources() {
+        // Calculate EXP
+        let startLevel = currentlevel, endLevel = desiredlevel-1
         var total_mora = 0
-        if(desiredlevel == 1){
+        if desiredlevel == 1 {
             print("Total Books: 0")
             print("Total Mora: 0")
         } else {
@@ -753,149 +738,149 @@ struct LevelUpCalculator: View {
             print("Total Hero's Wit: " + String(heros_wit))
             print("Total Adventurer's Exp: " + String(adv_exp))
             print("Total Wanderer's Adv: " + String(wand_adv))
-            print("Total EXP Wasted: " +  String(wand_adv_remainder))
+            print("Total EXP Wasted: " + String(wand_adv_remainder))
             
-            //Calculate Level Up Cost
+            // Calculate Level Up Cost
             total_mora = totalExp/5
         }
         
-        
-        //Calculate Ascension Cost
+        // Calculate Ascension Cost
         var currentAscension = 0
-        if (currentlevel > 80) {
-            currentAscension = 7;
-        } else if (currentlevel > 70 && currentlevel <= 80) {
-            currentAscension = 6;
-        } else if (currentlevel > 60 && currentlevel <= 70) {
-            currentAscension = 5;
-        } else if (currentlevel > 50 && currentlevel <= 60) {
-            currentAscension = 4;
-        } else if (currentlevel > 40 && currentlevel <= 50) {
-            currentAscension = 3;
-        } else if (currentlevel > 20 && currentlevel <= 40) {
-            currentAscension = 2;
-        } else if (currentlevel <= 20) {
-            currentAscension = 1;
+        if currentlevel > 80 {
+            currentAscension = 7
+        } else if currentlevel > 70, currentlevel <= 80 {
+            currentAscension = 6
+        } else if currentlevel > 60, currentlevel <= 70 {
+            currentAscension = 5
+        } else if currentlevel > 50, currentlevel <= 60 {
+            currentAscension = 4
+        } else if currentlevel > 40, currentlevel <= 50 {
+            currentAscension = 3
+        } else if currentlevel > 20, currentlevel <= 40 {
+            currentAscension = 2
+        } else if currentlevel <= 20 {
+            currentAscension = 1
         } else {
-            currentAscension = 0;
+            currentAscension = 0
         }
-        
         
         var desiredAscension = 0
-        if (desiredlevel > 80) {
-            desiredAscension = 7;
-        } else if (desiredlevel > 70 && desiredlevel <= 80) {
-            desiredAscension = 6;
-        } else if (desiredlevel > 60 && desiredlevel <= 70) {
-            desiredAscension = 5;
-        } else if (desiredlevel > 50 && desiredlevel <= 60) {
-            desiredAscension = 4;
-        } else if (desiredlevel > 40 && desiredlevel <= 50) {
-            desiredAscension = 3;
-        } else if (desiredlevel > 20 && desiredlevel <= 40) {
-            desiredAscension = 2;
-        } else if (desiredlevel <= 20) {
-            desiredAscension = 1;
+        if desiredlevel > 80 {
+            desiredAscension = 7
+        } else if desiredlevel > 70, desiredlevel <= 80 {
+            desiredAscension = 6
+        } else if desiredlevel > 60, desiredlevel <= 70 {
+            desiredAscension = 5
+        } else if desiredlevel > 50, desiredlevel <= 60 {
+            desiredAscension = 4
+        } else if desiredlevel > 40, desiredlevel <= 50 {
+            desiredAscension = 3
+        } else if desiredlevel > 20, desiredlevel <= 40 {
+            desiredAscension = 2
+        } else if desiredlevel <= 20 {
+            desiredAscension = 1
         } else {
-            desiredAscension = 0;
+            desiredAscension = 0
         }
         
-        let startAsc = currentAscension, endAsc = desiredAscension-1;
+        let startAsc = currentAscension, endAsc = desiredAscension-1
         var totalAscCost = 0
-        if(desiredAscension == 1){
+        if desiredAscension == 1 {
             print("Total Ascension Cost: 0")
         } else {
             totalAscCost = ascensionCost[startAsc...endAsc].reduce(0, +)
             normalbossmaterial = normalbossdrops[startAsc...endAsc].reduce(0, +)
             localmaterial = localspecialties[startAsc...endAsc].reduce(0, +)
-            
         }
         totallevelupcost = total_mora + totalAscCost
         print("Total Mora Needed for Leveling Up a Character: " + String(totallevelupcost))
         print("Total Normal Boss Materials Needed for Leveling Up a Character: " + String(normalbossmaterial))
         print("Total Local Materials Needed for Leveling Up a Character: " + String(localmaterial))
         
-        //Calculate Talent
-        //Calculate Normal Attack Talent Level
-        let startAttackTalent = currentnatalentlevel, endAttackTalent = desirednatalentlevel-1;
-        if(desirednatalentlevel == 1){
+        // Calculate Talent
+        // Calculate Normal Attack Talent Level
+        let startAttackTalent = currentnatalentlevel, endAttackTalent = desirednatalentlevel-1
+        if desirednatalentlevel == 1 {
         } else {
             na_talentcost = talentCost[startAttackTalent...endAttackTalent].reduce(0, +)
             
-            //Calculate Normal Talent Books
-            let startAttackBook = currentnatalentlevel, endAttackBook = desirednatalentlevel-1;
+            // Calculate Normal Talent Books
+            let startAttackBook = currentnatalentlevel, endAttackBook = desirednatalentlevel-1
             na_talentbooks = talentBooks[startAttackBook...endAttackBook].reduce(0, +)
             
-            //Crown
-            if(desirednatalentlevel == 10){
+            // Crown
+            if desirednatalentlevel == 10 {
                 na_crown = 1
+            } else {
+                na_crown = 0
             }
             
-            //Weekly Boss Drops
-            let startAttackBossDrops = currentnatalentlevel, endAttackBossDrops = desirednatalentlevel-1;
+            // Weekly Boss Drops
+            let startAttackBossDrops = currentnatalentlevel, endAttackBossDrops = desirednatalentlevel-1
             na_talentbossdrops = talentBossDrops[startAttackBossDrops...endAttackBossDrops].reduce(0, +)
         }
         
-        //Calculate Elemental Skill Talent Level
-        let startElementalTalent = currentestalentlevel, endElementalTalent = desiredestalentlevel-1;
-        if(desiredestalentlevel == 1){
+        // Calculate Elemental Skill Talent Level
+        let startElementalTalent = currentestalentlevel, endElementalTalent = desiredestalentlevel-1
+        if desiredestalentlevel == 1 {
         } else {
             es_talentcost = talentCost[startElementalTalent...endElementalTalent].reduce(0, +)
             
-            //Calculate Elemental Talent Books
-            let startElementalBook = currentestalentlevel, endElementalBook = desiredestalentlevel-1;
+            // Calculate Elemental Talent Books
+            let startElementalBook = currentestalentlevel, endElementalBook = desiredestalentlevel-1
             es_talentbooks = talentBooks[startElementalBook...endElementalBook].reduce(0, +)
             
-            //Crown
-            if(desiredestalentlevel == 10){
+            // Crown
+            if desiredestalentlevel == 10 {
                 es_crown = 1
+            } else {
+                es_crown = 0
             }
             
-            //Weekly Boss Drops
-            let startElementalBossDrops = currentestalentlevel, endElementalBossDrops = desiredestalentlevel-1;
+            // Weekly Boss Drops
+            let startElementalBossDrops = currentestalentlevel, endElementalBossDrops = desiredestalentlevel-1
             es_talentbossdrops = talentBossDrops[startElementalBossDrops...endElementalBossDrops].reduce(0, +)
         }
         
-        //Calculate Burst Talent Level
-        let startBurstTalent = currentbursttalentlevel, endBurstTalent = desiredbursttalentlevel-1;
-        if(desiredbursttalentlevel == 1){
+        // Calculate Burst Talent Level
+        let startBurstTalent = currentbursttalentlevel, endBurstTalent = desiredbursttalentlevel-1
+        if desiredbursttalentlevel == 1 {
         } else {
             burst_talentcost = talentCost[startBurstTalent...endBurstTalent].reduce(0, +)
             
-            //Calculate Normal Talent Books
-            let startBurstBook = currentbursttalentlevel, endAttackBook = desiredbursttalentlevel-1;
+            // Calculate Normal Talent Books
+            let startBurstBook = currentbursttalentlevel, endAttackBook = desiredbursttalentlevel-1
             burst_talentbooks = talentBooks[startBurstBook...endAttackBook].reduce(0, +)
             
-            //Crown
-            if(desiredbursttalentlevel == 10){
+            // Crown
+            if desiredbursttalentlevel == 10 {
                 burst_crown = 1
+            } else {
+                burst_crown = 0
             }
             
-            //Weekly Boss Drops
-            let startBurstBossDrops = currentbursttalentlevel, endBurstBossDrops = desiredbursttalentlevel-1;
+            // Weekly Boss Drops
+            let startBurstBossDrops = currentbursttalentlevel, endBurstBossDrops = desiredbursttalentlevel-1
             burst_talentbossdrops = talentBossDrops[startBurstBossDrops...endBurstBossDrops].reduce(0, +)
         }
         
+        // Talent: Mora, Crown, Boss Drops,Books
         
-        //Talent: Mora, Crown, Boss Drops,Books
-        
-        //Calculate Total Books
+        // Calculate Total Books
         totaltalentbooks = na_talentbooks + es_talentbooks + burst_talentbooks
         print("Total Common Books Needed for Leveling up Talents: " + String(totaltalentbooks))
         
-        //Calculate Total Talent Cost
+        // Calculate Total Talent Cost
         totaltalentcost = na_talentcost + es_talentcost + burst_talentcost
         print("Total Mora Needed for Leveling up Talents: " + String(totaltalentcost))
         
-        //Calculate Total Crown
+        // Calculate Total Crown
         totalcrown = na_crown + es_crown + burst_crown
         print("Total Crown Needed for Leveling up Talents: " + String(totalcrown))
         
-        //Calculate Total Boss Drops
+        // Calculate Total Boss Drops
         totaltalentbossdrops = na_talentbossdrops + es_talentbossdrops + burst_talentbossdrops
         print("Total Boss Drops Needed for Leveling up Talents: " + String(totaltalentbossdrops))
-        
-        isActive = true
         
         calc_result = Result(
             chara_heros_wit: heros_wit,
@@ -908,15 +893,10 @@ struct LevelUpCalculator: View {
             talent_common_books: totaltalentbooks,
             talent_crown: totalcrown,
             talent_weekly_boss_drops: totaltalentbossdrops
-            
         )
         
-        
-        
-        
+        isActive = true
     }
-    
-    
 }
 
 struct LevelUpCalculator_Previews: PreviewProvider {
@@ -925,13 +905,60 @@ struct LevelUpCalculator_Previews: PreviewProvider {
     }
 }
 
-//Extending view to get screensize
-extension View{
-    func getRect()->CGRect{
-        return UIScreen.main.bounds
+struct BlurView: UIViewRepresentable {
+    func makeUIView(context: Context)->UIVisualEffectView {
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+        return view
     }
-    
+
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {}
 }
 
+struct CustomAlertView: View {
+    // show custom alert
+    @Binding var show: Bool
+    
+    var body: some View {
+        ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
+            VStack(spacing: 10) {
+                Image("errorwarning")
+                    .resizable()
+                    .scaledToFill() // <=== Saves aspect ratio
+                    .frame(width: 150, height: 150)
+                
+                Text("Oh, no!")
+                    .font(.custom("Georgia", size: 24, relativeTo: .headline))
+                    .foregroundColor(.pink)
+                
+                Spacer()
+                    .frame(height: 10)
+                
+                Text("Current level must be less than desired level!!")
+            }
+            .padding(.vertical, 25)
+            .padding(.horizontal, 30)
+            .background(.white)
+            .cornerRadius(10)
+            
+            Button(action: {
+                withAnimation {
+                    show.toggle()
+                }
+            }) {
+                Image(systemName: "multiply")
+                    .font(.system(size: 28, weight: .bold))
+                    .foregroundColor(.primary)
+            }
+            .padding()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.primary.opacity(0.35))
+    }
+}
 
-
+// Extending view to get screensize
+extension View {
+    func getRect()->CGRect {
+        return UIScreen.main.bounds
+    }
+}

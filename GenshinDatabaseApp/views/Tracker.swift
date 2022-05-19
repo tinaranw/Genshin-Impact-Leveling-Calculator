@@ -406,6 +406,7 @@ struct Tracker: View {
                             .background(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(color: darkgray, radius: 3, x: 0, y: 1)
+                            .accessibility(label: Text("\(chara.name)'s talent books can be farmed today. \(chara.name) is a \(chara.rarity) \(chara.vision) character. A lot of \(chara.ascensionMats) and \(chara.normalBossDrops) are needed to level up the character level. And to level up the talents, you will need \(chara.talentBooks) books and several \(chara.weeklyBossDrops)."))
                             
                             Spacer()
                                 .frame(height: 15)

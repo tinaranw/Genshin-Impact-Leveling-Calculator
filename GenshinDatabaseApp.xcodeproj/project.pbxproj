@@ -27,6 +27,7 @@
 		5B41BC9B281B4D5700410759 /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BC9A281B4D5700410759 /* CharactersCollectionViewCell.swift */; };
 		5B41BCA1281C345700410759 /* glovar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BCA0281C345700410759 /* glovar.swift */; };
 		5B41BCA3281D30F000410759 /* ResinCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41BCA2281D30F000410759 /* ResinCalculator.swift */; };
+		5B5770422834E7C3007BF9A5 /* myDodocoFairySound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B5770412834E7C3007BF9A5 /* myDodocoFairySound.mp3 */; };
 		5B9E64B5282A4971003370E0 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64B4282A4971003370E0 /* ResultView.swift */; };
 		5B9E64B8282B88B8003370E0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64B7282B88B8003370E0 /* Result.swift */; };
 		5B9E64BA282D20F6003370E0 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E64B9282D20F6003370E0 /* Loading.swift */; };
@@ -80,6 +81,7 @@
 		5B41BC9A281B4D5700410759 /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B41BCA0281C345700410759 /* glovar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = glovar.swift; sourceTree = "<group>"; };
 		5B41BCA2281D30F000410759 /* ResinCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResinCalculator.swift; sourceTree = "<group>"; };
+		5B5770412834E7C3007BF9A5 /* myDodocoFairySound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = myDodocoFairySound.mp3; path = ../../myDodocoFairySound.mp3; sourceTree = "<group>"; };
 		5B9E64B4282A4971003370E0 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		5B9E64B6282A9645003370E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5B9E64B7282B88B8003370E0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		5BA96E64281944CE004CB1CA /* GenshinDatabaseApp */ = {
 			isa = PBXGroup;
 			children = (
+				5B5770412834E7C3007BF9A5 /* myDodocoFairySound.mp3 */,
 				5B9E64B6282A9645003370E0 /* Info.plist */,
 				5B41BC99281B4D3B00410759 /* widgets */,
 				5B41BC96281B4C8900410759 /* characters.json */,
@@ -352,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B5770422834E7C3007BF9A5 /* myDodocoFairySound.mp3 in Resources */,
 				5B41BC90281A8ABF00410759 /* georgia italic.ttf in Resources */,
 				5B41BC97281B4C8900410759 /* characters.json in Resources */,
 				5B41BC8B281A8ABF00410759 /* georgiaz.ttf in Resources */,
